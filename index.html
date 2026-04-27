@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pessimistic Pals</title>
+  <style>
+    body {
+      margin: 0;
+      min-height: 100vh;
+      background: #0a0806;
+      color: #c8860a;
+      font-family: 'Courier New', monospace;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 20px;
+    }
+    .wrap { max-width: 600px; }
+    h1 {
+      font-size: clamp(32px, 8vw, 64px);
+      letter-spacing: 0.1em;
+      color: #f4b942;
+      text-shadow: 0 0 12px rgba(244, 185, 66, 0.5);
+      margin: 0 0 20px;
+    }
+    p {
+      color: #c8860a;
+      letter-spacing: 0.05em;
+      line-height: 1.6;
+      font-size: 16px;
+    }
+    .cursor {
+      display: inline-block;
+      animation: blink 1s steps(2) infinite;
+    }
+    @keyframes blink {
+      to { opacity: 0; }
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <h1>PESSIMISTIC PALS</h1>
+    <p>&gt; transmission incoming<span class="cursor">_</span></p>
+    <p>October 2026</p>
+  </div>
+</body>
+</html>
