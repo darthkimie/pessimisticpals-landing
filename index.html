@@ -1,50 +1,371 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Pessimistic Pals</title>
-  <style>
-    body {
-      margin: 0;
-      min-height: 100vh;
-      background: #0a0806;
-      color: #c8860a;
-      font-family: 'Courier New', monospace;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      padding: 20px;
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pessimistic Pals // construction</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Rajdhani:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0a0806;
+    --amber: #c8860a;
+    --amber-bright: #f4b942;
+    --aglow: rgba(244, 185, 66, 0.5);
+    --dim: #6b4a0a;
+    --faint: #3a2906;
+    --panel: #120e08;
+    --red: #a04020;
+  }
+
+  * { box-sizing: border-box; }
+
+  html, body {
+    margin: 0;
+    padding: 0;
+    background: var(--bg);
+    color: var(--amber);
+    font-family: 'Share Tech Mono', monospace;
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+
+  body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background: repeating-linear-gradient(0deg, rgba(0,0,0,0) 0px, rgba(0,0,0,0) 2px, rgba(0,0,0,0.15) 3px, rgba(0,0,0,0) 4px);
+    pointer-events: none;
+    z-index: 100;
+  }
+
+  body::after {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background: radial-gradient(ellipse at center, rgba(0,0,0,0) 0%, rgba(0,0,0,0) 50%, rgba(0,0,0,0.4) 100%);
+    pointer-events: none;
+    z-index: 99;
+  }
+
+  @keyframes flicker {
+    0%, 99%, 100% { opacity: 1; }
+    99.3% { opacity: 0.92; }
+    99.6% { opacity: 0.96; }
+  }
+  body { animation: flicker 6s infinite; }
+
+  .wrap { max-width: 720px; margin: 0 auto; padding: 40px 24px 80px; position: relative; z-index: 1; }
+
+  .boot { font-size: 13px; color: var(--dim); margin-bottom: 48px; min-height: 100px; line-height: 1.8; }
+  .boot .line { opacity: 0; letter-spacing: 0.05em; }
+  .boot .line.shown { opacity: 1; color: var(--amber); }
+  .boot .line.shown.warn { color: var(--amber-bright); text-shadow: 0 0 4px var(--aglow); }
+
+  .title-block { text-align: center; margin: 56px 0 40px; }
+  .title {
+    font-family: 'Rajdhani', sans-serif;
+    font-size: clamp(40px, 9vw, 80px);
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    color: var(--amber-bright);
+    text-shadow: 0 0 16px var(--aglow), 0 0 32px rgba(244, 185, 66, 0.2);
+    margin: 0;
+    line-height: 1;
+  }
+  .subtitle { font-size: 14px; letter-spacing: 0.3em; color: var(--amber); margin-top: 12px; }
+  .cursor { display: inline-block; color: var(--amber-bright); }
+  .cursor.blink { animation: blink 1s steps(2) infinite; }
+  @keyframes blink { to { opacity: 0; } }
+
+  .banner {
+    border: 1px solid var(--faint);
+    background: rgba(200, 134, 10, 0.04);
+    padding: 14px 18px;
+    margin-bottom: 36px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    font-size: 14px;
+    letter-spacing: 0.06em;
+  }
+  .banner-dot {
+    width: 10px; height: 10px;
+    background: var(--amber-bright);
+    border-radius: 50%;
+    box-shadow: 0 0 8px var(--aglow);
+    animation: pulse 1.4s ease-in-out infinite;
+    flex-shrink: 0;
+  }
+  @keyframes pulse {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.5; transform: scale(0.85); }
+  }
+  .banner-text { color: var(--amber-bright); text-shadow: 0 0 4px var(--aglow); }
+
+  .progress-block { margin-bottom: 32px; }
+  .progress-label {
+    display: flex;
+    justify-content: space-between;
+    font-size: 12px;
+    letter-spacing: 0.1em;
+    color: var(--dim);
+    margin-bottom: 8px;
+    text-transform: uppercase;
+  }
+  .progress-label .pct {
+    color: var(--amber-bright);
+    text-shadow: 0 0 4px var(--aglow);
+    font-variant-numeric: tabular-nums;
+  }
+  .progress-bar {
+    height: 14px;
+    border: 1px solid var(--faint);
+    background: rgba(0,0,0,0.4);
+    position: relative;
+    overflow: hidden;
+  }
+  .progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--amber) 0%, var(--amber-bright) 100%);
+    box-shadow: 0 0 8px var(--aglow);
+    width: 73%;
+  }
+  .progress-fill.stuck { animation: stutter 4s ease-in-out infinite; }
+  @keyframes stutter {
+    0%, 92%, 100% { width: 73%; }
+    93% { width: 73.5%; }
+    94% { width: 72.8%; }
+    95% { width: 73.2%; }
+    96% { width: 72.5%; }
+    97% { width: 73.4%; }
+    98% { width: 73%; }
+  }
+  .progress-note {
+    font-size: 11px;
+    color: var(--red);
+    margin-top: 6px;
+    letter-spacing: 0.06em;
+    opacity: 0.7;
+  }
+
+  .stats {
+    display: none;
+  }
+
+  .dispatch {
+    border-top: 1px dashed var(--faint);
+    border-bottom: 1px dashed var(--faint);
+    padding: 14px 0;
+    margin-bottom: 40px;
+    font-size: 13px;
+    color: var(--amber);
+    letter-spacing: 0.04em;
+    min-height: 48px;
+  }
+  .dispatch-line {
+    opacity: 0;
+    transition: opacity 0.6s ease;
+  }
+  .dispatch-line.shown { opacity: 1; }
+  .dispatch-meta {
+    font-size: 10px;
+    color: var(--dim);
+    letter-spacing: 0.15em;
+    margin-top: 6px;
+    text-transform: uppercase;
+  }
+
+  .signup {
+    border: 1px solid var(--faint);
+    padding: 18px 20px;
+    background: rgba(244, 185, 66, 0.02);
+    margin-bottom: 32px;
+  }
+  .signup-label {
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    color: var(--dim);
+    text-transform: uppercase;
+    margin-bottom: 4px;
+  }
+  .signup-title { font-size: 13px; color: var(--amber); margin-bottom: 12px; letter-spacing: 0.04em; }
+  .signup-form { display: flex; gap: 8px; flex-wrap: wrap; }
+  .signup-input {
+    flex: 1;
+    min-width: 200px;
+    background: rgba(0,0,0,0.4);
+    border: 1px solid var(--faint);
+    color: var(--amber);
+    padding: 10px 12px;
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 13px;
+    letter-spacing: 0.04em;
+    outline: none;
+    transition: border-color 0.15s, box-shadow 0.15s;
+  }
+  .signup-input:focus {
+    border-color: var(--amber);
+    box-shadow: 0 0 8px rgba(244, 185, 66, 0.2);
+  }
+  .signup-input::placeholder { color: var(--dim); font-style: italic; }
+  .signup-submit {
+    background: transparent;
+    border: 1px solid var(--amber);
+    color: var(--amber);
+    padding: 10px 18px;
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 12px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all 0.15s;
+  }
+  .signup-submit:hover {
+    background: rgba(244, 185, 66, 0.1);
+    color: var(--amber-bright);
+    text-shadow: 0 0 4px var(--aglow);
+    box-shadow: 0 0 8px rgba(244, 185, 66, 0.2);
+  }
+  .signup-submit:active { transform: translateY(1px); }
+  .signup-fine {
+    font-size: 10px;
+    color: var(--dim);
+    margin-top: 10px;
+    letter-spacing: 0.06em;
+    font-style: italic;
+  }
+
+  .footer {
+    text-align: center;
+    font-size: 11px;
+    color: var(--dim);
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    padding-top: 24px;
+    border-top: 1px solid var(--faint);
+  }
+  .footer a { color: var(--amber); text-decoration: none; border-bottom: 1px dotted var(--dim); }
+  .footer a:hover { color: var(--amber-bright); }
+
+  @media (max-width: 480px) {
+    .signup-form { flex-direction: column; }
+    .signup-submit { width: 100%; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    body, .banner-dot, .progress-fill, .cursor.blink {
+      animation: none !important;
     }
-    .wrap { max-width: 600px; }
-    h1 {
-      font-size: clamp(32px, 8vw, 64px);
-      letter-spacing: 0.1em;
-      color: #f4b942;
-      text-shadow: 0 0 12px rgba(244, 185, 66, 0.5);
-      margin: 0 0 20px;
-    }
-    p {
-      color: #c8860a;
-      letter-spacing: 0.05em;
-      line-height: 1.6;
-      font-size: 16px;
-    }
-    .cursor {
-      display: inline-block;
-      animation: blink 1s steps(2) infinite;
-    }
-    @keyframes blink {
-      to { opacity: 0; }
-    }
-  </style>
+  }
+</style>
 </head>
 <body>
-  <div class="wrap">
-    <h1>PESSIMISTIC PALS</h1>
-    <p>&gt; transmission incoming<span class="cursor">_</span></p>
-    <p>October 2026</p>
+<div class="wrap">
+
+  <div class="boot" id="boot"></div>
+
+  <div class="title-block">
+    <h1 class="title">PESSIMISTIC PALS</h1>
+    <div class="subtitle">&gt; transmission incoming<span class="cursor blink">_</span></div>
   </div>
+
+  <div class="banner">
+    <div class="banner-dot"></div>
+    <div class="banner-text">SITE UNDER CONSTRUCTION // ETA: OCTOBER 5, 2026</div>
+  </div>
+
+  <div class="progress-block">
+    <div class="progress-label">
+      <span>BUILD PROGRESS</span>
+      <span class="pct" id="pct">73%</span>
+    </div>
+    <div class="progress-bar">
+      <div class="progress-fill stuck"></div>
+    </div>
+    <div class="progress-note">// last 27% historically takes longer than expected</div>
+  </div>
+
+  <div class="dispatch">
+    <div class="dispatch-line shown" id="dispatch">&gt; caregiving subroutine compiling...</div>
+    <div class="dispatch-meta">DISPATCH FEED // LIVE</div>
+  </div>
+
+  <div class="signup">
+    <div class="signup-label">OPTIONAL</div>
+    <div class="signup-title">Receive transmissions when this is real:</div>
+    <form class="signup-form" action="https://buttondown.com/api/emails/embed-subscribe/pessimisticpals" method="post" target="popupwindow" onsubmit="window.open('https://buttondown.com/pessimisticpals', 'popupwindow')">
+      <input class="signup-input" type="email" name="email" placeholder="your.email@example.com" required>
+      <button class="signup-submit" type="submit">Submit</button>
+    </form>
+    <div class="signup-fine">// approximately 0 emails until October. opt out anytime.</div>
+  </div>
+
+  <div class="footer">
+    A virtual pet app for the chronically realistic.<br>
+    By DK / <a href="https://buttondown.com/pessimisticpals" target="_blank">archive</a>
+  </div>
+
+</div>
+
+<script>
+  (function() {
+    var bootEl = document.getElementById('boot');
+    if (!bootEl) return;
+    var lines = [
+      { text: '> initializing transmission protocol...', delay: 200 },
+      { text: '> coordinates received: pessimisticpals.com', delay: 600 },
+      { text: '> contact made. neither party is enthusiastic.', delay: 1000 },
+      { text: '> WARNING: signal source unstable', delay: 1400, warn: true },
+      { text: '> WARNING: ETA exceeds reasonable expectations', delay: 1800, warn: true },
+      { text: '> proceeding anyway', delay: 2300 }
+    ];
+    lines.forEach(function(line) {
+      var div = document.createElement('div');
+      div.className = 'line' + (line.warn ? ' warn' : '');
+      div.textContent = line.text;
+      bootEl.appendChild(div);
+      setTimeout(function() { div.classList.add('shown'); }, line.delay);
+    });
+  })();
+
+  (function() {
+    var el = document.getElementById('dispatch');
+    if (!el) return;
+    var lines = [
+      'caregiving subroutine compiling...',
+      'existential dread module: nominal',
+      'Ahote attempting to leave the workbench again',
+      'Brutus declining all proposed activities',
+      'Centrama logging another false alarm',
+      'Doolin verifying nothing has improved',
+      'Veruca asking if this is normal (it is not)',
+      'Winta anticipating eight contingencies',
+      'Xio questioning the premise',
+      'Yun standing in the river. holding very still.',
+      'Zenji emitting a faint hum',
+      'Elbjorg crocheting an entire weighted blanket',
+      'spending Luckdust on items that will not help',
+      'Pal trust thresholds recalibrating downward',
+      'orbital decay within acceptable parameters',
+      'recalibrating expectations. failed.',
+      'storage at 73% capacity. always 73%.',
+      'season of mild dread approaching nominally',
+      'observation: the user is still here'
+    ];
+    var idx = 0;
+    function cycle() {
+      el.classList.remove('shown');
+      setTimeout(function() {
+        idx = (idx + 1) % lines.length;
+        el.textContent = '> ' + lines[idx];
+        el.classList.add('shown');
+      }, 700);
+    }
+    setInterval(cycle, 4000);
+  })();
+
+</script>
 </body>
 </html>
