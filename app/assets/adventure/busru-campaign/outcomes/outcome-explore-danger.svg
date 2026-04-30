@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900">
+  <rect width="1600" height="900" fill="#14090a"/>
+  <path d="M0 640 L260 510 L520 660 L780 460 L1120 660 L1360 520 L1600 650 L1600 900 L0 900 Z" fill="#3f1b1d"/>
+  <circle cx="1270" cy="160" r="100" fill="#ffb874" opacity="0.28"/>
+  <polygon points="420,310 510,540 330,540" fill="#ef8660" opacity="0.9"/>
+  <polygon points="830,250 930,560 720,560" fill="#ef8660" opacity="0.82"/>
+  <text x="120" y="150" fill="#ffe4d0" font-family="Georgia, serif" font-size="56">Outcome Overlay</text>
+  <text x="120" y="228" fill="#ffd3c8" font-family="Verdana, sans-serif" font-size="30">Explore Danger</text>
+  <text x="120" y="308" fill="#ffb88f" font-family="Verdana, sans-serif" font-size="24">Placeholder for hazard, collapse, or damaged-route art</text>
+</svg>

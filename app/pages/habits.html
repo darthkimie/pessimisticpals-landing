@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pessimistic Pals | Habits</title>
+  <link rel="stylesheet" href="../css/main.css">
+</head>
+<body data-page="habits">
+  <main class="screen screen-habits screen-streak" data-habits-root data-streak-root>
+    <header class="topbar panel">
+      <div>
+        <p class="eyebrow">PESSIMISTIC PALS // ROUTINE</p>
+        <h1 class="screen-title">Routine &amp; Streak</h1>
+      </div>
+      <p class="date-stamp" data-habits-date data-streak-date>---</p>
+    </header>
+
+    <section class="streak-stats-grid">
+      <article class="panel currency-card currency-card-streak">
+        <p class="label">Current Streak</p>
+        <p class="currency-value streak-hero-number" data-streak-current>00</p>
+      </article>
+      <article class="panel currency-card">
+        <p class="label">Personal Record</p>
+        <p class="currency-value" data-streak-record>00</p>
+      </article>
+      <article class="panel currency-card currency-card-luck">
+        <p class="label">Next Luckdust In</p>
+        <p class="currency-value" data-streak-next>00</p>
+        <p class="label">days</p>
+      </article>
+    </section>
+
+    <section class="panel checkin-panel" data-checkin-panel>
+      <div class="section-heading-row">
+        <div>
+          <p class="eyebrow">HOW ARE THINGS TODAY</p>
+          <h2 class="section-title">Daily Check-In</h2>
+        </div>
+        <div class="checkin-heading-actions">
+          <p class="section-note">Once per day</p>
+          <button type="button" class="ghost-link checkin-panel-toggle" data-checkin-panel-toggle aria-expanded="true" aria-controls="checkin-panel-body" hidden>Hide</button>
+        </div>
+      </div>
+      <p class="section-copy checkin-recap" data-checkin-recap hidden>Today's check-in and oracle are logged.</p>
+      <div class="checkin-panel-body" id="checkin-panel-body" data-checkin-panel-body>
+      <p class="section-copy" data-checkin-status>Daily check-in is pending.</p>
+      <button type="button" class="ghost-link checkin-question-toggle" data-checkin-question-toggle aria-expanded="true" aria-controls="checkin-question-body" hidden>Show options</button>
+      <div class="checkin-question-body" id="checkin-question-body" data-checkin-question-body>
+        <div class="checkin-options">
+          <button type="button" class="action-button" data-checkin-option="existing">About the same</button>
+          <button type="button" class="action-button" data-checkin-option="worse">Worse, naturally</button>
+          <button type="button" class="action-button" data-checkin-option="tolerable">Oddly tolerable</button>
+        </div>
+      </div>
+
+      <p class="section-copy checkin-cta" data-checkin-cta>Answer above. Then the Dread Oracle deigns to respond.</p>
+
+      <div class="checkin-oracle oracle-panel" data-checkin-oracle>
+        <button type="button" class="ghost-link checkin-oracle-toggle" data-checkin-oracle-toggle aria-expanded="true" aria-controls="checkin-oracle-body" hidden>Show Oracle Reading</button>
+        <div class="checkin-oracle-body" id="checkin-oracle-body" data-checkin-oracle-body>
+        <div class="dread-bezel" data-eightball-root>
+          <p class="dread-label">DREAD ORACLE // MK.II</p>
+          <div class="dread-bezel-bolts" aria-hidden="true"></div>
+          <div class="eightball-stage" data-eightball-stage>
+            <div class="eightball-fog" aria-hidden="true"></div>
+            <div class="dread-speck" aria-hidden="true"></div>
+            <div class="dread-speck" aria-hidden="true"></div>
+            <div class="dread-speck" aria-hidden="true"></div>
+            <div class="dread-speck" aria-hidden="true"></div>
+            <div class="dread-speck" aria-hidden="true"></div>
+            <div class="eightball" data-eightball role="button" tabindex="0" aria-label="Consult the Dread Oracle">
+              <div class="eightball-body"></div>
+              <div class="eightball-equator"></div>
+              <div class="eightball-glare"></div>
+              <div class="eightball-glare-small"></div>
+              <div class="eightball-window" data-eightball-window>
+                <div class="eightball-coin" data-eightball-coin></div>
+                <div class="eightball-text" data-eightball-text>WHY ASK</div>
+              </div>
+            </div>
+            <div class="eightball-shadow"></div>
+          </div>
+          <p class="dread-hint" data-eightball-hint>The void answers. Sometimes.</p>
+        </div>
+
+        <button type="button" class="action-button oracle-button" data-oracle-consult>Consult Anyway</button>
+        <article class="result-box">
+          <p class="label">Oracle Reading</p>
+          <p class="dialogue-text" data-oracle-result aria-live="polite" aria-atomic="true">The Dread Oracle is available. Expectations should remain conservative.</p>
+        </article>
+
+        <article class="oracle-dispensation">
+          <header class="oracle-dispensation-header">
+            <p class="eyebrow">TODAY'S DISPENSATION</p>
+            <p class="oracle-dispensation-date" data-disappointment-date>---</p>
+          </header>
+          <div class="oracle-dispensation-result">
+            <p class="oracle-dispensation-outcome" data-disappointment-outcome>PENDING</p>
+            <p class="oracle-dispensation-amount" data-disappointment-amount>--</p>
+          </div>
+          <p class="oracle-dispensation-quip" data-disappointment-quip>The app has not yet dispensed its formal disappointment.</p>
+        </article>
+        </div>
+      </div>
+      </div>
+    </section>
+
+    <section class="panel streak-built-panel">
+      <div class="section-heading-row">
+        <div>
+          <p class="eyebrow">STREAK IMPACT</p>
+          <h2 class="section-title">What consistency produced</h2>
+        </div>
+        <p class="section-note" data-streak-impact-note>Tallies since your current streak began.</p>
+      </div>
+      <ul class="streak-impact-grid" role="list">
+        <li class="streak-impact-card is-trust">
+          <div class="streak-impact-card-head">
+            <span class="streak-impact-icon" aria-hidden="true">[T]</span>
+            <p class="label">Trust This Streak</p>
+          </div>
+          <p class="streak-impact-value" data-streak-trust-gained>+0</p>
+          <div class="streak-impact-bar" aria-hidden="true">
+            <span class="streak-impact-bar-fill" data-streak-trust-bar></span>
+          </div>
+          <p class="streak-impact-foot">Earned through showing up.</p>
+        </li>
+        <li class="streak-impact-card is-gloom">
+          <div class="streak-impact-card-head">
+            <span class="streak-impact-icon" aria-hidden="true">[G]</span>
+            <p class="label">Gloom Earned</p>
+          </div>
+          <p class="streak-impact-value" data-streak-gloom-earned>0</p>
+          <div class="streak-impact-bar" aria-hidden="true">
+            <span class="streak-impact-bar-fill" data-streak-gloom-bar></span>
+          </div>
+          <p class="streak-impact-foot">Hard-won currency of the gloom.</p>
+        </li>
+        <li class="streak-impact-card is-tasks">
+          <div class="streak-impact-card-head">
+            <span class="streak-impact-icon" aria-hidden="true">[X]</span>
+            <p class="label">Tasks Completed</p>
+          </div>
+          <p class="streak-impact-value" data-streak-tasks-done>0</p>
+          <div class="streak-impact-bar" aria-hidden="true">
+            <span class="streak-impact-bar-fill" data-streak-tasks-bar></span>
+          </div>
+          <p class="streak-impact-foot">Small dents in the void.</p>
+        </li>
+        <li class="streak-impact-card is-since">
+          <div class="streak-impact-card-head">
+            <span class="streak-impact-icon" aria-hidden="true">[~]</span>
+            <p class="label">Days Since Break</p>
+          </div>
+          <p class="streak-impact-value" data-streak-days-since-break>0</p>
+          <div class="streak-impact-bar" aria-hidden="true">
+            <span class="streak-impact-bar-fill" data-streak-days-bar></span>
+          </div>
+          <p class="streak-impact-foot">Days the chain held.</p>
+        </li>
+      </ul>
+      <p class="streak-impact-summary" data-streak-impact-summary>The streak is fresh. Acts so far: pending.</p>
+    </section>
+
+    <section class="panel habits-panel">
+      <div class="luckdust-orbs" aria-hidden="true">
+        <span class="luckdust-orb"></span>
+        <span class="luckdust-orb"></span>
+        <span class="luckdust-orb"></span>
+        <span class="luckdust-orb"></span>
+        <span class="luckdust-orb"></span>
+        <span class="luckdust-orb"></span>
+      </div>
+      <div class="section-heading-row">
+        <div>
+          <p class="eyebrow">WEEKLY RECORD</p>
+          <h2 class="section-title">Weekly Routine</h2>
+        </div>
+        <div class="habit-heading-meta">
+          <p class="section-note">1 log per day</p>
+          <p class="eyebrow habit-today-badge is-pending" data-habit-today-badge>PENDING</p>
+        </div>
+      </div>
+      <p class="section-copy" data-habit-status>Today's routine is still unclaimed.</p>
+
+      <ul class="habit-grid" data-habit-grid></ul>
+
+      <div class="habit-progress-block">
+        <div class="habit-progress-header">
+          <p class="label">LUCKDUST PROGRESS</p>
+          <p class="label" data-habit-luckdust-label>Next reward in -- days</p>
+        </div>
+        <div class="habit-progress-track">
+          <div class="habit-progress-fill" data-habit-progress-fill></div>
+        </div>
+        <p class="habit-progress-hint" data-habit-progress-hint>
+          Primary streak rewards 1 Luckdust every 3 progress days.
+        </p>
+      </div>
+
+      <div class="status-grid habit-reward-grid">
+        <article class="status-card">
+          <p class="label">Days Logged</p>
+          <p class="status-value" data-habit-days-logged>0 / 7</p>
+        </article>
+        <article class="status-card">
+          <p class="label">Next Reward</p>
+          <p class="status-value" data-habit-next-reward>--</p>
+        </article>
+      </div>
+
+      <p class="section-copy habit-instruction">Routines log automatically when you complete a linked calendar event or finish a task. Your Pal is watching. Indifferently.</p>
+    </section>
+
+    <section class="panel trophy-panel">
+      <div class="section-heading-row">
+        <div>
+          <p class="eyebrow">ANTI-ACHIEVEMENT CASE</p>
+          <h2 class="section-title">Dusty trophies for suspicious effort</h2>
+        </div>
+        <p class="section-note" data-trophy-count>0 UNLOCKED</p>
+      </div>
+      <ul class="trophy-case" data-trophy-case></ul>
+    </section>
+
+    <nav class="pals-access-row" aria-label="Secondary">
+      <a class="ghost-link pals-access-link" href="companion.html">Talk</a>
+      <a class="ghost-link pals-access-link" href="lab.html">Lab</a>
+      <a class="ghost-link pals-access-link" href="collection.html">Archive</a>
+      <a class="ghost-link pals-access-link" href="choose-pal.html">Change Pal</a>
+      <a class="ghost-link pals-access-link" href="database.html">Database</a>
+    </nav>
+
+    <nav class="bottom-nav panel" aria-label="Primary">
+      <a class="nav-link" href="tasks.html"><span class="nav-icon" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 20 20" fill="none"><rect x="4" y="3" width="12" height="14" rx="1" stroke="currentColor" stroke-width="1.5"/><line x1="7" y1="7" x2="13" y2="7" stroke="currentColor" stroke-width="1.5"/><line x1="7" y1="10" x2="13" y2="10" stroke="currentColor" stroke-width="1.5"/><line x1="7" y1="13" x2="11" y2="13" stroke="currentColor" stroke-width="1.5"/></svg></span><span class="nav-label">Tasks</span></a>
+      <a class="nav-link is-active" href="habits.html"><span class="nav-icon" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 20 20" fill="none"><circle cx="4.5" cy="10" r="2" stroke="currentColor" stroke-width="1.5"/><circle cx="10" cy="10" r="2" stroke="currentColor" stroke-width="1.5"/><circle cx="15.5" cy="10" r="2" stroke="currentColor" stroke-width="1.5"/><line x1="6.5" y1="10" x2="8" y2="10" stroke="currentColor" stroke-width="1.5"/><line x1="12" y1="10" x2="13.5" y2="10" stroke="currentColor" stroke-width="1.5"/></svg></span><span class="nav-label">Routine</span></a>
+      <a class="nav-link" href="home.html"><span class="nav-icon" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 20 20" fill="none"><path d="M10 15.5S3 11 3 6.5a4 4 0 0 1 7-2.65A4 4 0 0 1 17 6.5C17 11 10 15.5 10 15.5z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></svg></span><span class="nav-label">Care</span></a>
+      <a class="nav-link" href="calendar.html"><span class="nav-icon" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 20 20" fill="none"><rect x="3" y="5" width="14" height="12" rx="1" stroke="currentColor" stroke-width="1.5"/><line x1="3" y1="9" x2="17" y2="9" stroke="currentColor" stroke-width="1.5"/><line x1="7" y1="3" x2="7" y2="7" stroke="currentColor" stroke-width="1.5"/><line x1="13" y1="3" x2="13" y2="7" stroke="currentColor" stroke-width="1.5"/></svg></span><span class="nav-label">Schedule</span></a>
+      <a class="nav-link" href="lab.html"><span class="nav-icon" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 20 20" fill="none"><path d="M8 3h4M9 3v6l-3.5 5.5A1 1 0 0 0 6.4 16h7.2a1 1 0 0 0 .9-1.5L11 9V3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="nav-label">Lab</span></a>
+      <a class="nav-link" href="collection.html"><span class="nav-icon" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 20 20" fill="none"><rect x="3" y="3" width="6" height="6" rx="1" stroke="currentColor" stroke-width="1.5"/><rect x="11" y="3" width="6" height="6" rx="1" stroke="currentColor" stroke-width="1.5"/><rect x="3" y="11" width="6" height="6" rx="1" stroke="currentColor" stroke-width="1.5"/><rect x="11" y="11" width="6" height="6" rx="1" stroke="currentColor" stroke-width="1.5"/></svg></span><span class="nav-label">Collection</span></a>
+      <a class="nav-link" href="companion.html"><span class="nav-icon" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 20 20" fill="none"><path d="M4 4h12a1 1 0 0 1 1 1v7a1 1 0 0 1-1 1H8l-4 3V5a1 1 0 0 1 1-1z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></svg></span><span class="nav-label">Companion</span></a>
+    </nav>
+  </main>
+
+	<script src="../js/constants.js"></script>
+	<script src="../js/utils.js"></script>
+  <script src="../js/data.js"></script>
+  <script src="../js/normalize.js"></script>
+  <script src="../js/state.js"></script>
+  <script src="../js/ghost.js"></script>
+  <script src="../js/tooltips.js"></script>
+  <script src="../js/needs.js"></script>
+  <script src="../js/trust.js"></script>
+  <script src="../js/clone.js"></script>
+  <script src="../js/clone-reveal.js"></script>
+  <script src="../js/pal-helpers.js"></script>
+  <script src="../js/dialogue.js"></script>
+  <script src="../js/oracle.js"></script>
+  <script src="../js/seasonal.js"></script>
+  <script src="../js/items.js"></script>
+	<script src="../js/shop.js"></script>
+  <script src="../js/calendar-helpers.js"></script>
+  <script src="../js/audio.js"></script>
+  <script src="../js/feedback.js"></script>
+  <script src="../js/activity-log.js"></script>
+  <script src="../js/main.js"></script>
+</body>
+</html>

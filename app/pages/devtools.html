@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pessimistic Pals | Dev Tools</title>
+  <link rel="stylesheet" href="../css/main.css" />
+</head>
+<body data-page="devtools">
+  <main class="screen screen-devtools" data-devtools-root>
+    <header class="topbar panel">
+      <div>
+        <p class="eyebrow">PESSIMISTIC PALS // SANDBOX</p>
+        <h1 class="screen-title">Developer Tools</h1>
+      </div>
+      <a class="ghost-link" href="home.html">Back</a>
+    </header>
+
+    <section class="panel devtools-warning-panel">
+      <p class="eyebrow">Warning</p>
+      <h2 class="section-title">DEV TOOLS - REMOVE BEFORE RELEASE</h2>
+      <p class="section-copy">This sandbox mutates app state only through existing public state helpers. It is temporary and should not ship.</p>
+    </section>
+
+    <section class="panel devtools-panel">
+      <p class="eyebrow">Pal Controls</p>
+      <h2 class="section-title">Switch active pal</h2>
+      <div class="devtools-field-grid">
+        <label class="devtools-field">
+          <span class="label">Active Pal</span>
+          <select class="task-input devtools-select" data-dev-pal-select></select>
+        </label>
+      </div>
+      <div class="devtools-button-row">
+        <button type="button" class="action-button" data-dev-apply-pal>Apply Pal Switch</button>
+      </div>
+    </section>
+
+    <section class="panel devtools-panel">
+      <p class="eyebrow">Currency Controls</p>
+      <h2 class="section-title">Set currency values</h2>
+      <div class="devtools-field-grid">
+        <label class="devtools-field">
+          <span class="label">Set Gloom</span>
+          <input class="task-input" type="number" min="0" max="999" value="0" data-dev-gloom-input />
+        </label>
+        <label class="devtools-field">
+          <span class="label">Set Luckdust</span>
+          <input class="task-input" type="number" min="0" max="99" value="0" data-dev-luckdust-input />
+        </label>
+      </div>
+      <div class="devtools-button-row">
+        <button type="button" class="action-button" data-dev-apply-currency>Apply Currency</button>
+      </div>
+    </section>
+
+    <section class="panel devtools-panel">
+      <p class="eyebrow">Needs Controls</p>
+      <h2 class="section-title">Set active pal needs</h2>
+      <div class="devtools-field-grid">
+        <label class="devtools-field">
+          <span class="label">Set Hunger</span>
+          <input class="task-input" type="number" min="0" max="100" value="0" data-dev-hunger-input />
+        </label>
+        <label class="devtools-field">
+          <span class="label">Set Boredom</span>
+          <input class="task-input" type="number" min="0" max="100" value="0" data-dev-boredom-input />
+        </label>
+        <label class="devtools-field">
+          <span class="label">Set Mood</span>
+          <input class="task-input" type="number" min="0" max="100" value="0" data-dev-mood-input />
+        </label>
+        <label class="devtools-field">
+          <span class="label">Set Plague</span>
+          <input class="task-input" type="number" min="0" max="100" value="0" data-dev-plague-input />
+        </label>
+      </div>
+      <div class="devtools-button-row">
+        <button type="button" class="action-button" data-dev-apply-needs>Apply Needs</button>
+      </div>
+    </section>
+
+    <section class="panel devtools-panel">
+      <p class="eyebrow">Plague Controls</p>
+      <h2 class="section-title">Force plague state</h2>
+      <div class="devtools-button-row">
+        <button type="button" class="action-button" data-dev-trigger-plague>Trigger Full Plague</button>
+        <button type="button" class="action-button" data-dev-cure-plague>Cure Plague</button>
+      </div>
+    </section>
+
+    <section class="panel devtools-panel">
+      <p class="eyebrow">Streak Controls</p>
+      <h2 class="section-title">Set streak value</h2>
+      <div class="devtools-field-grid">
+        <label class="devtools-field">
+          <span class="label">Set Streak Value</span>
+          <input class="task-input" type="number" min="0" value="0" data-dev-streak-input />
+        </label>
+      </div>
+      <div class="devtools-button-row">
+        <button type="button" class="action-button" data-dev-apply-streak>Apply Streak</button>
+      </div>
+    </section>
+
+    <section class="panel devtools-panel">
+      <p class="eyebrow">Screen Navigation</p>
+      <h2 class="section-title">Jump between pages</h2>
+      <div class="devtools-nav-grid">
+        <a class="ghost-link" href="tasks.html">tasks.html</a>
+        <a class="ghost-link" href="home.html">home.html</a>
+        <a class="ghost-link" href="habits.html">habits.html</a>
+        <a class="ghost-link" href="streak.html">streak.html</a>
+        <a class="ghost-link" href="calendar.html">calendar.html</a>
+        <a class="ghost-link" href="lab.html">lab.html</a>
+        <a class="ghost-link" href="collection.html">collection.html</a>
+        <a class="ghost-link" href="choose-pal.html">choose-pal.html</a>
+        <a class="ghost-link" href="adopt.html">adopt.html</a>
+        <a class="ghost-link" href="onboarding.html">onboarding.html</a>
+        <a class="ghost-link" href="database.html">database.html</a>
+        <a class="ghost-link" href="companion.html">companion.html</a>
+      </div>
+    </section>
+
+    <section class="panel devtools-danger-panel">
+      <p class="eyebrow">Danger Zone</p>
+      <h2 class="section-title">Unsafe state pushes</h2>
+      <p class="section-copy">These controls do not call special death or reset logic. They only push state to thresholds and let normal page code react later.</p>
+      <div class="devtools-button-row">
+        <button type="button" class="action-button" data-dev-kill-pal>Kill Active Pal</button>
+        <button type="button" class="action-button" data-dev-reset-state>Reset All State</button>
+      </div>
+    </section>
+
+    <section class="panel devtools-panel">
+      <p class="eyebrow">Test Mode</p>
+      <h2 class="section-title">Max everything for testing</h2>
+      <p class="section-copy">Unlocks all pals, maxes currencies, sets high trust and compatibility, healthy needs, and a streak. One button to test everything.</p>
+      <div class="devtools-button-row">
+        <button type="button" class="action-button" data-dev-max-all>Max Everything</button>
+      </div>
+    </section>
+
+    <section class="panel devtools-readout-panel">
+      <p class="eyebrow">Live State Readout</p>
+      <h2 class="section-title">Current ppals_state</h2>
+      <div class="devtools-button-row">
+        <button type="button" class="action-button" data-dev-refresh-readout>Refresh Readout</button>
+      </div>
+      <pre class="devtools-readout" data-dev-readout>{}</pre>
+    </section>
+  </main>
+
+  <script src="../js/constants.js"></script>
+  <script src="../js/utils.js"></script>
+  <script src="../js/data.js"></script>
+  <script src="../js/normalize.js"></script>
+  <script src="../js/state.js"></script>
+  <script src="../js/ghost.js"></script>
+  <script src="../js/tooltips.js"></script>
+  <script src="../js/needs.js"></script>
+  <script src="../js/trust.js"></script>
+  <script src="../js/clone.js"></script>
+  <script src="../js/clone-reveal.js"></script>
+  <script src="../js/pal-helpers.js"></script>
+  <script src="../js/dialogue.js"></script>
+  <script src="../js/oracle.js"></script>
+  <script src="../js/seasonal.js"></script>
+  <script src="../js/items.js"></script>
+	<script src="../js/shop.js"></script>
+  <script src="../js/calendar-helpers.js"></script>
+  <script src="../js/audio.js"></script>
+  <script src="../js/feedback.js"></script>
+  <script src="../js/activity-log.js"></script>
+  <script src="../js/main.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const root = document.querySelector('[data-devtools-root]');
+      const app = window.PessimisticPals;
+      const palOptions = Array.isArray(PALS) ? PALS.filter((pal) => !pal.placeholder) : [];
+
+      if (!root || !app) {
+        return;
+      }
+
+      const palSelect = root.querySelector('[data-dev-pal-select]');
+      const gloomInput = root.querySelector('[data-dev-gloom-input]');
+      const luckdustInput = root.querySelector('[data-dev-luckdust-input]');
+      const hungerInput = root.querySelector('[data-dev-hunger-input]');
+      const boredomInput = root.querySelector('[data-dev-boredom-input]');
+      const moodInput = root.querySelector('[data-dev-mood-input]');
+      const plagueInput = root.querySelector('[data-dev-plague-input]');
+      const streakInput = root.querySelector('[data-dev-streak-input]');
+      const readout = root.querySelector('[data-dev-readout]');
+
+      function clamp(value, min, max) {
+        const numeric = Number(value);
+        if (!Number.isFinite(numeric)) {
+          return min;
+        }
+
+        return Math.max(min, Math.min(max, numeric));
+      }
+
+      function syncActiveLedger(currentState, nextNeeds) {
+        if (!currentState.activePal) {
+          return currentState.palMoodLedger || {};
+        }
+
+        const nextLedger = {
+          ...(currentState.palMoodLedger || {}),
+        };
+        const currentEntry = nextLedger[currentState.activePal] || {};
+
+        nextLedger[currentState.activePal] = {
+          ...currentEntry,
+          hunger: nextNeeds.hunger,
+          boredom: nextNeeds.boredom,
+          mood: nextNeeds.mood,
+          plague: nextNeeds.plague,
+        };
+
+        return nextLedger;
+      }
+
+      function withNeedsUpdate(currentState, overrides, forcedPlagued) {
+        const nextNeeds = {
+          hunger: clamp(overrides.hunger ?? currentState.needs.hunger, 0, 100),
+          boredom: clamp(overrides.boredom ?? currentState.needs.boredom, 0, 100),
+          mood: clamp(overrides.mood ?? currentState.needs.mood, 0, 100),
+          plague: clamp(overrides.plague ?? currentState.needs.plague, 0, 100),
+        };
+
+        return {
+          ...currentState,
+          needs: nextNeeds,
+          plagued: typeof forcedPlagued === 'boolean' ? forcedPlagued : nextNeeds.plague >= 100,
+          palMoodLedger: syncActiveLedger(currentState, nextNeeds),
+        };
+      }
+
+      function refreshReadout() {
+        readout.textContent = JSON.stringify(app.getState(), null, 2);
+      }
+
+      function syncControls() {
+        const state = app.getState();
+        const activeEntry = state.activePal && state.palMoodLedger
+          ? (state.palMoodLedger[state.activePal] || {})
+          : {};
+
+        if (state.activePal) {
+          palSelect.value = state.activePal;
+        } else if (palOptions[0]) {
+          palSelect.value = palOptions[0].id;
+        }
+
+        gloomInput.value = clamp(state.gloom, 0, 999);
+        luckdustInput.value = clamp(state.luckdust, 0, 99);
+        hungerInput.value = clamp(state.needs.hunger ?? activeEntry.hunger ?? 0, 0, 100);
+        boredomInput.value = clamp(state.needs.boredom ?? activeEntry.boredom ?? 0, 0, 100);
+        moodInput.value = clamp(state.needs.mood ?? activeEntry.mood ?? 0, 0, 100);
+        plagueInput.value = clamp(state.needs.plague ?? activeEntry.plague ?? 0, 0, 100);
+        streakInput.value = Math.max(0, Number(state.streak) || 0);
+        refreshReadout();
+      }
+
+      palOptions.forEach((pal) => {
+        const option = document.createElement('option');
+        option.value = pal.id;
+        option.textContent = pal.name;
+        palSelect.appendChild(option);
+      });
+
+      root.querySelector('[data-dev-apply-pal]').addEventListener('click', () => {
+        const palId = palSelect.value;
+        if (!palId) {
+          return;
+        }
+
+        app.setAppState((currentState) => app.applyActivePalSelection(currentState, palId));
+        syncControls();
+      });
+
+      root.querySelector('[data-dev-apply-currency]').addEventListener('click', () => {
+        app.setAppState((currentState) => ({
+          ...currentState,
+          gloom: clamp(gloomInput.value, 0, 999),
+          luckdust: clamp(luckdustInput.value, 0, 99),
+        }));
+        syncControls();
+      });
+
+      root.querySelector('[data-dev-apply-needs]').addEventListener('click', () => {
+        app.setAppState((currentState) => withNeedsUpdate(currentState, {
+          hunger: hungerInput.value,
+          boredom: boredomInput.value,
+          mood: moodInput.value,
+          plague: plagueInput.value,
+        }));
+        syncControls();
+      });
+
+      root.querySelector('[data-dev-trigger-plague]').addEventListener('click', () => {
+        app.setAppState((currentState) => withNeedsUpdate(currentState, {
+          plague: 100,
+        }, true));
+        syncControls();
+      });
+
+      root.querySelector('[data-dev-cure-plague]').addEventListener('click', () => {
+        app.setAppState((currentState) => withNeedsUpdate(currentState, {
+          plague: 10,
+        }, false));
+        syncControls();
+      });
+
+      root.querySelector('[data-dev-apply-streak]').addEventListener('click', () => {
+        app.setAppState((currentState) => ({
+          ...currentState,
+          streak: Math.max(0, Number(streakInput.value) || 0),
+        }));
+        syncControls();
+      });
+
+      root.querySelector('[data-dev-kill-pal]').addEventListener('click', () => {
+        app.setAppState((currentState) => withNeedsUpdate(currentState, {
+          hunger: 0,
+          mood: 0,
+          plague: 100,
+        }, true));
+        syncControls();
+      });
+
+      root.querySelector('[data-dev-reset-state]').addEventListener('click', () => {
+        localStorage.removeItem('ppals_state');
+        window.location.href = '../index.html';
+      });
+
+      root.querySelector('[data-dev-refresh-readout]').addEventListener('click', () => {
+        refreshReadout();
+      });
+
+      root.querySelector('[data-dev-max-all]').addEventListener('click', function() {
+        var allPalIds = palOptions.map(function(pal) { return pal.id; });
+
+        app.setAppState(function(currentState) {
+          var maxLedger = {};
+          allPalIds.forEach(function(palId) {
+            var existing = (currentState.palMoodLedger && currentState.palMoodLedger[palId]) || {};
+            maxLedger[palId] = {
+              ...existing,
+              mood: 70,
+              hunger: 20,
+              boredom: 20,
+              plague: 0,
+              trust: 80,
+              neglectDays: 0,
+              isDead: false,
+              isGhost: false,
+              ghostEnteredDate: null,
+              lastTaskCompletionDate: existing.lastTaskCompletionDate || null,
+              lastMoodSyncDate: existing.lastMoodSyncDate || null,
+              latestReaction: existing.latestReaction || null,
+            };
+          });
+
+          var maxCompat = {};
+          for (var i = 0; i < allPalIds.length; i++) {
+            for (var j = i + 1; j < allPalIds.length; j++) {
+              var key = [allPalIds[i], allPalIds[j]].sort().join('::');
+              maxCompat[key] = 25;
+            }
+          }
+
+          return {
+            ...currentState,
+            gloom: 999,
+            luckdust: 99,
+            xp: 5000,
+            streak: 15,
+            ownedPals: allPalIds,
+            unlockedPals: allPalIds,
+            activePal: currentState.activePal || allPalIds[0],
+            needs: {
+              hunger: 20,
+              boredom: 20,
+              mood: 70,
+              plague: 0,
+            },
+            plagued: false,
+            palMoodLedger: maxLedger,
+            palCompatibility: maxCompat,
+          };
+        });
+        syncControls();
+      });
+
+      syncControls();
+    });
+  </script>
+</body>
+</html>

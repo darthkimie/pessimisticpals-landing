@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900">
+  <rect width="1600" height="900" fill="#0a1710"/>
+  <rect x="0" y="620" width="1600" height="280" fill="#284530"/>
+  <circle cx="1260" cy="170" r="110" fill="#ffe39e" opacity="0.34"/>
+  <rect x="180" y="540" width="220" height="140" rx="24" fill="#715c33"/>
+  <rect x="430" y="500" width="180" height="180" rx="20" fill="#8e7240"/>
+  <text x="120" y="150" fill="#f6e9c8" font-family="Georgia, serif" font-size="56">Outcome Overlay</text>
+  <text x="120" y="228" fill="#d4f0d1" font-family="Verdana, sans-serif" font-size="30">Explore Salvage</text>
+  <text x="120" y="308" fill="#f5cf73" font-family="Verdana, sans-serif" font-size="24">Placeholder for cache pickup and route-clear art</text>
+</svg>

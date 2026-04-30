@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<title>Constellation Visual Studies // PPALS</title>
+<link rel="stylesheet" href="../css/main.css">
+<style>
+/* ============================================================
+   SCRATCH PREVIEW — 5 constellation visual studies inspired by
+   astrology apps (Co-Star, The Pattern, Sanctuary, Stellarium,
+   TimePassages, Chani). Self-contained styles below so the
+   prototypes are isolated from app state.
+   ============================================================ */
+.studio { display: flex; flex-direction: column; gap: 28px; padding: 18px 14px 60px; max-width: 720px; margin: 0 auto; }
+.study { padding: 16px; border: 1px solid rgba(15,255,140,0.22); background: rgba(2,6,12,0.72); border-radius: 10px; }
+.study-head { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; flex-wrap: wrap; margin-bottom: 12px; }
+.study-head h2 { margin: 0; font-family: var(--display, var(--mono)); font-size: 16px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--crt-phosphor, #0fff8c); text-shadow: 0 0 6px rgba(15,255,140,0.45); }
+.study-head .study-tag { font-family: var(--mono); font-size: 10px; letter-spacing: 0.16em; color: var(--luck, #f5d76e); text-transform: uppercase; }
+.study-blurb { margin: 0 0 14px; font-family: var(--mono); font-size: 11px; line-height: 1.55; letter-spacing: 0.04em; opacity: 0.78; }
+.study-blurb b { color: var(--crt-phosphor, #0fff8c); font-weight: normal; text-shadow: 0 0 4px rgba(15,255,140,0.4); }
+.study-stage {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  background: radial-gradient(circle at 50% 50%, rgba(8,14,28,0.95) 0%, rgba(2,4,10,1) 75%);
+  border: 1px dashed rgba(15,255,140,0.18);
+  border-radius: 8px;
+  overflow: hidden;
+  isolation: isolate;
+}
+.study-stage::before {
+  content: '';
+  position: absolute; inset: 0; pointer-events: none;
+  background-image:
+    radial-gradient(1px 1px at 12% 22%, rgba(255,255,255,0.55), transparent 50%),
+    radial-gradient(1px 1px at 30% 70%, rgba(255,255,255,0.4), transparent 50%),
+    radial-gradient(1px 1px at 55% 18%, rgba(255,255,255,0.5), transparent 50%),
+    radial-gradient(1px 1px at 72% 78%, rgba(255,255,255,0.35), transparent 50%),
+    radial-gradient(1px 1px at 88% 32%, rgba(255,255,255,0.45), transparent 50%),
+    radial-gradient(1px 1px at 18% 88%, rgba(255,255,255,0.4), transparent 50%),
+    radial-gradient(1px 1px at 64% 48%, rgba(255,255,255,0.3), transparent 50%),
+    radial-gradient(1px 1px at 42% 38%, rgba(255,255,255,0.25), transparent 50%),
+    radial-gradient(1px 1px at 80% 12%, rgba(255,255,255,0.4), transparent 50%);
+  opacity: 0.85;
+}
+.study-svg { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; }
+
+.intro { padding: 18px 18px 6px; max-width: 720px; margin: 0 auto; }
+.intro h1 { margin: 0 0 6px; font-family: var(--display, var(--mono)); font-size: 20px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--crt-phosphor, #0fff8c); text-shadow: 0 0 8px rgba(15,255,140,0.45); }
+.intro p { margin: 0; font-family: var(--mono); font-size: 11px; letter-spacing: 0.04em; line-height: 1.6; opacity: 0.8; }
+.intro .ref { color: var(--luck, #f5d76e); }
+
+/* ----- Study 1: Zodiac Wheel ----- */
+.zw-wedge { fill: rgba(15,255,140,0.04); stroke: rgba(15,255,140,0.18); stroke-width: 0.3; vector-effect: non-scaling-stroke; }
+.zw-wedge.is-active { fill: rgba(15,255,140,0.12); stroke: rgba(15,255,140,0.55); }
+.zw-rim { fill: none; stroke: rgba(15,255,140,0.4); stroke-width: 0.5; vector-effect: non-scaling-stroke; }
+.zw-tick { stroke: rgba(15,255,140,0.4); stroke-width: 0.3; vector-effect: non-scaling-stroke; }
+.zw-glyph { font-family: var(--mono); font-size: 4.6px; fill: var(--crt-phosphor, #0fff8c); text-anchor: middle; dominant-baseline: middle; letter-spacing: 0.06em; }
+.zw-house-num { font-family: var(--mono); font-size: 2.4px; fill: rgba(255,255,255,0.45); text-anchor: middle; dominant-baseline: middle; }
+.zw-center-sigil { fill: none; stroke: var(--luck, #f5d76e); stroke-width: 0.4; vector-effect: non-scaling-stroke; opacity: 0.7; }
+.zw-center-label { font-family: var(--mono); font-size: 3.2px; fill: var(--luck, #f5d76e); text-anchor: middle; letter-spacing: 0.16em; }
+.zw-center-name  { font-family: var(--mono); font-size: 5px;   fill: var(--crt-phosphor, #0fff8c); text-anchor: middle; letter-spacing: 0.18em; text-transform: uppercase; }
+
+/* ----- Study 2: Sky Map ----- */
+.sm-nebula { mix-blend-mode: screen; opacity: 0.55; }
+.sm-asterism-line { fill: none; stroke: rgba(255,255,255,0.55); stroke-width: 0.25; vector-effect: non-scaling-stroke; }
+.sm-asterism-line.is-lit { stroke: var(--crt-phosphor, #0fff8c); stroke-width: 0.45; filter: drop-shadow(0 0 2px var(--crt-phosphor,#0fff8c)); }
+.sm-star { fill: #fff; }
+.sm-star.is-lit { fill: var(--crt-phosphor, #0fff8c); filter: drop-shadow(0 0 3px var(--crt-phosphor,#0fff8c)); }
+.sm-name { font-family: var(--mono); font-size: 2.6px; fill: rgba(255,255,255,0.7); letter-spacing: 0.1em; text-transform: uppercase; }
+.sm-twinkle { animation: sm-twinkle 3.4s ease-in-out infinite; }
+@keyframes sm-twinkle { 0%,100%{opacity:.5;transform:scale(.8)} 50%{opacity:1;transform:scale(1.15)} }
+
+/* ----- Study 3: Aspect Web ----- */
+.aw-rim { fill: none; stroke: rgba(255,255,255,0.18); stroke-width: 0.4; vector-effect: non-scaling-stroke; }
+.aw-degree-tick { stroke: rgba(255,255,255,0.35); stroke-width: 0.3; vector-effect: non-scaling-stroke; }
+.aw-aspect { fill: none; stroke-width: 0.45; vector-effect: non-scaling-stroke; }
+.aw-aspect.is-trine { stroke: var(--crt-phosphor, #0fff8c); filter: drop-shadow(0 0 2px var(--crt-phosphor,#0fff8c)); }
+.aw-aspect.is-sextile { stroke: #6dd5ed; opacity: 0.75; }
+.aw-aspect.is-square { stroke: #9b59d0; stroke-dasharray: 1 1.4; opacity: 0.7; }
+.aw-aspect.is-conjunction { stroke: var(--luck, #f5d76e); stroke-width: 0.7; filter: drop-shadow(0 0 2.5px var(--luck,#f5d76e)); }
+.aw-node { fill: rgba(2,6,12,0.85); stroke: var(--crt-phosphor, #0fff8c); stroke-width: 0.4; vector-effect: non-scaling-stroke; }
+.aw-glyph { font-family: var(--mono); font-size: 3.6px; fill: var(--crt-phosphor, #0fff8c); text-anchor: middle; dominant-baseline: middle; }
+.aw-key { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 10px; font-family: var(--mono); font-size: 9px; letter-spacing: 0.12em; text-transform: uppercase; opacity: 0.85; }
+.aw-key span { display: inline-flex; align-items: center; gap: 4px; }
+.aw-swatch { width: 10px; height: 2px; background: #fff; }
+.aw-swatch.is-trine { background: var(--crt-phosphor, #0fff8c); }
+.aw-swatch.is-sextile { background: #6dd5ed; }
+.aw-swatch.is-square { background: #9b59d0; }
+.aw-swatch.is-conjunction { background: var(--luck, #f5d76e); }
+
+/* ----- Study 4: Tarot Spread ----- */
+.tarot-stage { padding: 16px 8px; }
+.tarot-rail { display: flex; gap: 8px; align-items: stretch; height: 100%; overflow-x: auto; padding: 4px; }
+.tarot-card {
+  position: relative;
+  flex: 0 0 auto;
+  width: 86px;
+  height: 132px;
+  border: 1px solid var(--card-tint, var(--crt-phosphor, #0fff8c));
+  border-radius: 6px;
+  background:
+    linear-gradient(160deg, color-mix(in srgb, var(--card-tint, #0fff8c) 12%, transparent), rgba(2,6,12,0.85)),
+    repeating-linear-gradient(45deg, rgba(255,255,255,0.03) 0 2px, transparent 2px 6px);
+  font-family: var(--mono);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 8px 6px;
+  box-shadow: 0 0 10px color-mix(in srgb, var(--card-tint, #0fff8c) 25%, transparent);
+  transform: rotate(var(--card-rot, 0deg));
+}
+.tarot-card.is-active { transform: rotate(0) translateY(-6px); border-width: 2px; box-shadow: 0 0 16px color-mix(in srgb, var(--card-tint, #0fff8c) 70%, transparent); }
+.tarot-card.is-locked { filter: grayscale(0.7); opacity: 0.6; }
+.tarot-corner { position: absolute; font-family: var(--mono); font-size: 8px; letter-spacing: 0.12em; color: var(--card-tint, var(--crt-phosphor, #0fff8c)); }
+.tarot-corner.is-tl { top: 4px; left: 5px; }
+.tarot-corner.is-br { bottom: 4px; right: 5px; transform: rotate(180deg); }
+.tarot-glyph { font-size: 30px; line-height: 1; text-align: center; color: var(--card-tint, var(--crt-phosphor, #0fff8c)); text-shadow: 0 0 6px color-mix(in srgb, var(--card-tint, #0fff8c) 60%, transparent); }
+.tarot-roman { font-family: var(--mono); font-size: 9px; letter-spacing: 0.18em; text-align: center; color: var(--off-white, #e8f6ef); opacity: 0.8; }
+.tarot-name { font-family: var(--mono); font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; text-align: center; color: var(--off-white, #e8f6ef); }
+.tarot-thread { position: absolute; inset: 0; pointer-events: none; }
+.tarot-thread path { fill: none; stroke: var(--crt-phosphor, #0fff8c); stroke-width: 1.2; opacity: 0.55; filter: drop-shadow(0 0 3px var(--crt-phosphor,#0fff8c)); animation: tarot-thread-pulse 3s ease-in-out infinite; }
+@keyframes tarot-thread-pulse { 0%,100%{opacity:.4} 50%{opacity:.85} }
+
+/* ----- Study 5: Orbital ----- */
+.orb-orbit { fill: none; stroke: rgba(255,255,255,0.16); stroke-width: 0.25; stroke-dasharray: 0.8 1.2; vector-effect: non-scaling-stroke; }
+.orb-link { fill: none; stroke: var(--crt-phosphor, #0fff8c); stroke-width: 0.4; stroke-dasharray: 0.6 1.4; vector-effect: non-scaling-stroke; opacity: 0.75; filter: drop-shadow(0 0 2px var(--crt-phosphor,#0fff8c)); }
+.orb-sun { filter: drop-shadow(0 0 14px var(--luck,#f5d76e)); }
+.orb-sun-disc { fill: var(--luck, #f5d76e); }
+.orb-sun-corona { fill: none; stroke: var(--luck, #f5d76e); stroke-width: 0.4; opacity: 0.6; vector-effect: non-scaling-stroke; }
+.orb-planet { stroke: rgba(255,255,255,0.55); stroke-width: 0.3; vector-effect: non-scaling-stroke; }
+.orb-name { font-family: var(--mono); font-size: 2.6px; fill: rgba(255,255,255,0.8); letter-spacing: 0.08em; text-transform: uppercase; }
+.orb-center-name { font-family: var(--mono); font-size: 4px; fill: var(--luck,#f5d76e); text-anchor: middle; letter-spacing: 0.18em; text-transform: uppercase; }
+
+</style>
+</head>
+<body class="screen">
+<main class="studio">
+  <header class="intro">
+    <h1>Constellation Visual Studies</h1>
+    <p>
+      Five explorations for the Pal Constellation map on the Collection page.
+      Inspired by <span class="ref">Co-Star</span>, <span class="ref">Sanctuary</span>,
+      <span class="ref">Stellarium</span>, <span class="ref">The Pattern</span>,
+      and <span class="ref">TimePassages</span>. Each study uses the same 10 pals
+      and the same bestPal links so the differences are purely visual.
+    </p>
+  </header>
+
+  <!-- ============================================================
+       STUDY 1 — ZODIAC WHEEL
+       ============================================================ -->
+  <section class="study">
+    <div class="study-head">
+      <h2>1 // Zodiac Wheel</h2>
+      <span class="study-tag">Co-Star · Sanctuary</span>
+    </div>
+    <p class="study-blurb">
+      Pals occupy houses on a 10-wedge zodiac ring. Each pal gets its own
+      <b>house glyph</b> and tribal sigil. The active pal's wedge brightens.
+      Center holds a small sigil of the active pal. <b>Tap a wedge</b> to read its
+      bestPal link and effect. Reads as a horoscope, plays as a roster.
+    </p>
+    <div class="study-stage" id="study-zodiac"></div>
+  </section>
+
+  <!-- ============================================================
+       STUDY 2 — SKY MAP
+       ============================================================ -->
+  <section class="study">
+    <div class="study-head">
+      <h2>2 // Night Sky Map</h2>
+      <span class="study-tag">Stellarium · Sky Guide</span>
+    </div>
+    <p class="study-blurb">
+      A real-feeling star chart. Pals scatter across a deep nebula sky at
+      varying <b>magnitudes</b> (size = luck). Asterism lines connect bestPals
+      with the same drawing convention used for Orion or the Big Dipper. Lit
+      pairs glow phosphor; dormant pairs stay white.
+    </p>
+    <div class="study-stage" id="study-skymap"></div>
+  </section>
+
+  <!-- ============================================================
+       STUDY 3 — ASPECT WEB (BIRTH CHART)
+       ============================================================ -->
+  <section class="study">
+    <div class="study-head">
+      <h2>3 // Aspect Web</h2>
+      <span class="study-tag">Co-Star birth chart · TimePassages</span>
+    </div>
+    <p class="study-blurb">
+      Pals sit on the rim at fixed degrees. Inside, <b>aspect chords</b>
+      crisscross like a real natal chart. Color encodes relationship state:
+      green = lit (trine), blue = adjacent (sextile), purple = tense (square),
+      gold = completed loop (conjunction). Most data-rich of the five.
+    </p>
+    <div class="study-stage" id="study-aspects"></div>
+    <div class="aw-key">
+      <span><span class="aw-swatch is-trine"></span>Lit</span>
+      <span><span class="aw-swatch is-sextile"></span>Sextile</span>
+      <span><span class="aw-swatch is-square"></span>Tense</span>
+      <span><span class="aw-swatch is-conjunction"></span>Loop</span>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       STUDY 4 — TAROT SPREAD
+       ============================================================ -->
+  <section class="study">
+    <div class="study-head">
+      <h2>4 // Tarot Spread</h2>
+      <span class="study-tag">Sanctuary · Chani · Labyrinthos</span>
+    </div>
+    <p class="study-blurb">
+      Each pal becomes a <b>major-arcana card</b> tinted to its color, with a
+      Roman numeral, glyph, and name. Cards lay out as a horizontal fan;
+      <b>glowing thread arcs</b> link bestPals overhead. Tap a card to flip
+      it (active = raised). Most "physical" / collectible feeling.
+    </p>
+    <div class="study-stage tarot-stage" id="study-tarot"></div>
+  </section>
+
+  <!-- ============================================================
+       STUDY 5 — ORBITAL SOLAR SYSTEM
+       ============================================================ -->
+  <section class="study">
+    <div class="study-head">
+      <h2>5 // Orbital System</h2>
+      <span class="study-tag">The Pattern · Stellarium · Kepler</span>
+    </div>
+    <p class="study-blurb">
+      Active pal = the <b>sun</b>. Other pals orbit at radii determined by luck
+      (high luck = closer / brighter). BestPal links draw as <b>comet arcs</b>
+      between orbits. Passive animation: planets drift around their orbit
+      slowly. Reads as a living system rather than a static chart.
+    </p>
+    <div class="study-stage" id="study-orbit"></div>
+  </section>
+</main>
+
+<script>
+// ---------- shared mock data ----------
+const PALS = [
+  { id: 'ahote',    name: 'Ahote',    color: '#f5a623', bestPal: 'Yun',      luck: 10, glyph: '☉' },
+  { id: 'brutus',   name: 'Brutus',   color: '#5c6b73', bestPal: 'Elbjorg',  luck: 9,  glyph: '♄' },
+  { id: 'centrama', name: 'Centrama', color: '#2f7d7a', bestPal: 'Zenji',    luck: 9,  glyph: '☿' },
+  { id: 'doolin',   name: 'Doolin',   color: '#d4af37', bestPal: 'Winta',    luck: 8,  glyph: '♌' },
+  { id: 'elbjorg',  name: 'Elbjorg',  color: '#4a7c59', bestPal: 'Brutus',   luck: 7,  glyph: '♉' },
+  { id: 'veruca',   name: 'Veruca',   color: '#c0392b', bestPal: 'Xio',      luck: 6,  glyph: '♈' },
+  { id: 'winta',    name: 'Winta',    color: '#ff69b4', bestPal: 'Doolin',   luck: 5,  glyph: '♀' },
+  { id: 'xio',      name: 'Xio',      color: '#e55b00', bestPal: 'Veruca',   luck: 4,  glyph: '♂' },
+  { id: 'yun',      name: 'Yun',      color: '#a29bfe', bestPal: 'Ahote',    luck: 3,  glyph: '♓' },
+  { id: 'zenji',    name: 'Zenji',    color: '#00b894', bestPal: 'Centrama', luck: 10, glyph: '♎' },
+];
+const ACTIVE = 'ahote';
+// pretend Doolin↔Winta and Ahote↔Yun are completed loops; Brutus↔Elbjorg is lit.
+const NAME_TO_ID = Object.fromEntries(PALS.map(p => [p.name.toLowerCase(), p.id]));
+function bestPalId(p){ return NAME_TO_ID[String(p.bestPal||'').toLowerCase()]; }
+function escapeHtml(s){ return String(s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c])); }
+
+// ---------- STUDY 1: ZODIAC WHEEL ----------
+(function(){
+  const stage = document.getElementById('study-zodiac');
+  if (!stage) return;
+  const total = PALS.length;
+  const cx = 50, cy = 50, rOuter = 46, rInner = 34, rGlyph = 40, rHouse = 30;
+  const wedges = [];
+  const labels = [];
+  for (let i = 0; i < total; i++) {
+    const pal = PALS[i];
+    // start at top, go clockwise
+    const a0 = (-Math.PI / 2) + (i / total) * Math.PI * 2;
+    const a1 = (-Math.PI / 2) + ((i + 1) / total) * Math.PI * 2;
+    const am = (a0 + a1) / 2;
+    const x0o = cx + Math.cos(a0)*rOuter, y0o = cy + Math.sin(a0)*rOuter;
+    const x1o = cx + Math.cos(a1)*rOuter, y1o = cy + Math.sin(a1)*rOuter;
+    const x0i = cx + Math.cos(a0)*rInner, y0i = cy + Math.sin(a0)*rInner;
+    const x1i = cx + Math.cos(a1)*rInner, y1i = cy + Math.sin(a1)*rInner;
+    const isActive = pal.id === ACTIVE;
+    const path = `M ${x0i} ${y0i} L ${x0o} ${y0o} A ${rOuter} ${rOuter} 0 0 1 ${x1o} ${y1o} L ${x1i} ${y1i} A ${rInner} ${rInner} 0 0 0 ${x0i} ${y0i} Z`;
+    wedges.push(`<path class="zw-wedge${isActive?' is-active':''}" d="${path}" style="fill:${isActive?`color-mix(in srgb, ${pal.color} 35%, rgba(2,6,12,.6))`:`color-mix(in srgb, ${pal.color} 12%, rgba(2,6,12,.6))`}; stroke:${pal.color}"/>`);
+    const gx = cx + Math.cos(am)*rGlyph, gy = cy + Math.sin(am)*rGlyph;
+    const hx = cx + Math.cos(am)*rHouse, hy = cy + Math.sin(am)*rHouse;
+    labels.push(`<text class="zw-glyph" x="${gx}" y="${gy}" style="fill:${pal.color}">${pal.glyph}</text>`);
+    labels.push(`<text class="zw-house-num" x="${hx}" y="${hy}">${escapeHtml(pal.name.slice(0,3).toUpperCase())}</text>`);
+  }
+  // tick marks every 6° (60 around the rim)
+  let ticks = '';
+  for (let t = 0; t < 60; t++) {
+    const a = (t / 60) * Math.PI * 2;
+    const x1 = cx + Math.cos(a) * rOuter;
+    const y1 = cy + Math.sin(a) * rOuter;
+    const x2 = cx + Math.cos(a) * (rOuter - (t % 5 === 0 ? 2 : 1));
+    const y2 = cy + Math.sin(a) * (rOuter - (t % 5 === 0 ? 2 : 1));
+    ticks += `<line class="zw-tick" x1="${x1}" y1="${y1}" x2="${x2}" y2="${y2}"/>`;
+  }
+  const activePal = PALS.find(p => p.id === ACTIVE);
+  stage.innerHTML = `
+    <svg class="study-svg" viewBox="0 0 100 100" preserveAspectRatio="xMidYMid meet" aria-hidden="true">
+      <circle class="zw-rim" cx="${cx}" cy="${cy}" r="${rOuter}"/>
+      <circle class="zw-rim" cx="${cx}" cy="${cy}" r="${rInner}"/>
+      ${wedges.join('')}
+      ${ticks}
+      ${labels.join('')}
+      <!-- center sigil -->
+      <circle class="zw-center-sigil" cx="${cx}" cy="${cy}" r="14"/>
+      <circle class="zw-center-sigil" cx="${cx}" cy="${cy}" r="10"/>
+      <text class="zw-center-label" x="${cx}" y="${cy - 4}">ASCENDANT</text>
+      <text class="zw-center-name"  x="${cx}" y="${cy + 3}">${activePal.name.toUpperCase()}</text>
+      <text class="zw-center-label" x="${cx}" y="${cy + 9}">${activePal.glyph}</text>
+    </svg>
+  `;
+})();
+
+// ---------- STUDY 2: SKY MAP ----------
+(function(){
+  const stage = document.getElementById('study-skymap');
+  if (!stage) return;
+  // hand-tuned star coordinates so the layout reads like real constellations
+  const COORDS = {
+    ahote:    { x: 22, y: 28 },
+    yun:      { x: 32, y: 38 },
+    centrama: { x: 50, y: 22 },
+    zenji:    { x: 64, y: 30 },
+    doolin:   { x: 76, y: 42 },
+    winta:    { x: 70, y: 60 },
+    veruca:   { x: 50, y: 70 },
+    xio:      { x: 36, y: 78 },
+    brutus:   { x: 18, y: 60 },
+    elbjorg:  { x: 12, y: 44 },
+  };
+  const drawn = new Set();
+  let lines = '';
+  PALS.forEach(p => {
+    const partner = bestPalId(p);
+    if (!partner) return;
+    const k = [p.id, partner].sort().join('::');
+    if (drawn.has(k)) return; drawn.add(k);
+    const a = COORDS[p.id], b = COORDS[partner];
+    if (!a || !b) return;
+    const lit = ['ahote','yun','brutus','elbjorg','doolin','winta'].includes(p.id) && ['ahote','yun','brutus','elbjorg','doolin','winta'].includes(partner);
+    lines += `<line class="sm-asterism-line${lit?' is-lit':''}" x1="${a.x}" y1="${a.y}" x2="${b.x}" y2="${b.y}"/>`;
+  });
+  let stars = '';
+  PALS.forEach((p, i) => {
+    const c = COORDS[p.id]; if (!c) return;
+    const r = 0.7 + (p.luck / 10) * 1.6;
+    const lit = ['ahote','yun','brutus','elbjorg','doolin','winta'].includes(p.id);
+    stars += `<g class="sm-twinkle" style="transform-origin:${c.x}px ${c.y}px; animation-delay:${(i*0.3).toFixed(2)}s">
+                <circle class="sm-star${lit?' is-lit':''}" cx="${c.x}" cy="${c.y}" r="${r.toFixed(2)}"/>
+              </g>
+              <text class="sm-name" x="${c.x + 2}" y="${c.y + 1.2}">${p.name.toUpperCase()}</text>`;
+  });
+  stage.innerHTML = `
+    <svg class="study-svg" viewBox="0 0 100 100" preserveAspectRatio="xMidYMid meet" aria-hidden="true">
+      <defs>
+        <radialGradient id="sm-neb-1" cx="30%" cy="40%" r="40%">
+          <stop offset="0%" stop-color="#5b3a8a" stop-opacity="0.55"/>
+          <stop offset="100%" stop-color="#5b3a8a" stop-opacity="0"/>
+        </radialGradient>
+        <radialGradient id="sm-neb-2" cx="75%" cy="65%" r="35%">
+          <stop offset="0%" stop-color="#0f6f5a" stop-opacity="0.55"/>
+          <stop offset="100%" stop-color="#0f6f5a" stop-opacity="0"/>
+        </radialGradient>
+      </defs>
+      <rect class="sm-nebula" x="0" y="0" width="100" height="100" fill="url(#sm-neb-1)"/>
+      <rect class="sm-nebula" x="0" y="0" width="100" height="100" fill="url(#sm-neb-2)"/>
+      ${lines}
+      ${stars}
+    </svg>
+  `;
+})();
+
+// ---------- STUDY 3: ASPECT WEB ----------
+(function(){
+  const stage = document.getElementById('study-aspects');
+  if (!stage) return;
+  const total = PALS.length;
+  const cx = 50, cy = 50, rRim = 44;
+  const positions = new Map();
+  PALS.forEach((p, i) => {
+    const a = (-Math.PI/2) + (i/total) * Math.PI*2;
+    positions.set(p.id, { x: cx + Math.cos(a)*rRim, y: cy + Math.sin(a)*rRim, angle: a, idx: i });
+  });
+  // degree ticks
+  let ticks = '';
+  for (let t = 0; t < 72; t++) {
+    const a = (t/72) * Math.PI*2;
+    const x1 = cx + Math.cos(a)*(rRim+1.5);
+    const y1 = cy + Math.sin(a)*(rRim+1.5);
+    const x2 = cx + Math.cos(a)*(rRim+(t%6===0?3:2));
+    const y2 = cy + Math.sin(a)*(rRim+(t%6===0?3:2));
+    ticks += `<line class="aw-degree-tick" x1="${x1}" y1="${y1}" x2="${x2}" y2="${y2}"/>`;
+  }
+  // aspect lines: for each pal, link to bestPal classified by index distance
+  const drawn = new Set();
+  let aspects = '';
+  PALS.forEach(p => {
+    const partner = bestPalId(p); if (!partner) return;
+    const k = [p.id, partner].sort().join('::');
+    if (drawn.has(k)) return; drawn.add(k);
+    const A = positions.get(p.id), B = positions.get(partner);
+    const dist = Math.min(Math.abs(A.idx - B.idx), total - Math.abs(A.idx - B.idx));
+    let cls = 'aw-aspect ';
+    // a few are mocked as completed loops:
+    const isLoop = (p.id === 'ahote' && partner === 'yun')
+              || (p.id === 'yun' && partner === 'ahote')
+              || (p.id === 'doolin' && partner === 'winta')
+              || (p.id === 'winta' && partner === 'doolin');
+    if (isLoop) cls += 'is-conjunction';
+    else if (dist >= 4) cls += 'is-trine';
+    else if (dist === 3) cls += 'is-square';
+    else cls += 'is-sextile';
+    aspects += `<line class="${cls}" x1="${A.x}" y1="${A.y}" x2="${B.x}" y2="${B.y}"/>`;
+  });
+  // a few non-bestPal "transit" lines for visual density:
+  const extras = [['ahote','centrama'],['brutus','xio'],['zenji','elbjorg'],['veruca','winta']];
+  extras.forEach(([a,b], i) => {
+    const A = positions.get(a), B = positions.get(b);
+    aspects += `<line class="aw-aspect ${i%2===0?'is-sextile':'is-square'}" x1="${A.x}" y1="${A.y}" x2="${B.x}" y2="${B.y}"/>`;
+  });
+  // nodes
+  let nodes = '';
+  PALS.forEach(p => {
+    const pos = positions.get(p.id);
+    nodes += `<circle class="aw-node" cx="${pos.x}" cy="${pos.y}" r="2.6" style="stroke:${p.color}"/>
+              <text class="aw-glyph" x="${pos.x}" y="${pos.y}" style="fill:${p.color}">${p.glyph}</text>`;
+  });
+  stage.innerHTML = `
+    <svg class="study-svg" viewBox="0 0 100 100" preserveAspectRatio="xMidYMid meet" aria-hidden="true">
+      <circle class="aw-rim" cx="${cx}" cy="${cy}" r="${rRim}"/>
+      <circle class="aw-rim" cx="${cx}" cy="${cy}" r="${rRim - 4}"/>
+      ${ticks}
+      ${aspects}
+      ${nodes}
+    </svg>
+  `;
+})();
+
+// ---------- STUDY 4: TAROT SPREAD ----------
+(function(){
+  const stage = document.getElementById('study-tarot');
+  if (!stage) return;
+  const TAROT_NAMES = {
+    ahote: 'The Fool', brutus: 'The Hermit', centrama: 'The Tower',
+    doolin: 'The Sun', elbjorg: 'The Hierophant', veruca: 'The Magician',
+    winta: 'The Lovers', xio: 'Strength', yun: 'The Star', zenji: 'Justice',
+  };
+  const TAROT_GLYPHS = { ahote:'✦', brutus:'☾', centrama:'⌬', doolin:'☉', elbjorg:'⚿', veruca:'⚝', winta:'♥', xio:'⚔', yun:'★', zenji:'⚖' };
+  const ROMAN = ['0','I','II','III','IV','V','VI','VII','VIII','IX','X'];
+  const cards = PALS.map((p, i) => {
+    const isActive = p.id === ACTIVE;
+    const isLocked = p.id === 'xio'; // demo: xio not adopted yet
+    const rot = (i % 2 === 0 ? -3 : 3) + (isActive ? 0 : 0);
+    return `<article class="tarot-card${isActive?' is-active':''}${isLocked?' is-locked':''}" style="--card-tint:${p.color}; --card-rot:${rot}deg" data-pal="${p.id}">
+      <span class="tarot-corner is-tl">${ROMAN[i] || ''}</span>
+      <div class="tarot-glyph">${TAROT_GLYPHS[p.id]||'✦'}</div>
+      <div>
+        <p class="tarot-roman">${(TAROT_NAMES[p.id]||'').toUpperCase()}</p>
+        <p class="tarot-name">${p.name}</p>
+      </div>
+      <span class="tarot-corner is-br">${ROMAN[i] || ''}</span>
+    </article>`;
+  }).join('');
+  // overlay thread svg connecting bestPal pairs across the rail (illustrative arcs)
+  const threadPairs = [[0,8],[1,4],[2,9],[3,6]]; // ahote-yun, brutus-elbjorg, centrama-zenji, doolin-winta
+  let paths = '';
+  threadPairs.forEach(([a,b]) => {
+    const x1 = (a + 0.5) / PALS.length * 100;
+    const x2 = (b + 0.5) / PALS.length * 100;
+    const my = 8 + Math.abs(a-b) * 1.2;
+    paths += `<path d="M ${x1}% 50% Q ${(x1+x2)/2}% ${my}% ${x2}% 50%"/>`;
+  });
+  stage.innerHTML = `
+    <div class="tarot-rail">${cards}</div>
+    <svg class="tarot-thread" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">${paths}</svg>
+  `;
+})();
+
+// ---------- STUDY 5: ORBITAL ----------
+(function(){
+  const stage = document.getElementById('study-orbit');
+  if (!stage) return;
+  const cx = 50, cy = 50;
+  const others = PALS.filter(p => p.id !== ACTIVE);
+  // sort by luck desc — high luck = closer in
+  const sorted = others.slice().sort((a, b) => b.luck - a.luck);
+  const RING_COUNT = 4;
+  let orbits = '';
+  for (let r = 0; r < RING_COUNT; r++) {
+    const radius = 14 + r * 9;
+    orbits += `<ellipse class="orb-orbit" cx="${cx}" cy="${cy}" rx="${radius}" ry="${radius * 0.85}"/>`;
+  }
+  let planets = '';
+  let names = '';
+  let links = '';
+  const positions = new Map();
+  sorted.forEach((p, i) => {
+    const ringIdx = Math.min(RING_COUNT - 1, Math.floor(i / 3));
+    const radius = 14 + ringIdx * 9;
+    const ry = radius * 0.85;
+    const angle = (i * 73 + ringIdx * 35) * Math.PI / 180; // arbitrary spread
+    const x = cx + Math.cos(angle) * radius;
+    const y = cy + Math.sin(angle) * ry;
+    positions.set(p.id, { x, y });
+    const size = 1.4 + (p.luck / 10) * 1.8;
+    planets += `<circle class="orb-planet" cx="${x.toFixed(2)}" cy="${y.toFixed(2)}" r="${size.toFixed(2)}" style="fill:${p.color}; filter:drop-shadow(0 0 3px ${p.color})"/>`;
+    names += `<text class="orb-name" x="${(x + size + 0.5).toFixed(2)}" y="${(y + 1).toFixed(2)}">${p.name.toUpperCase()}</text>`;
+  });
+  positions.set(ACTIVE, { x: cx, y: cy });
+  // best-pal links: comet arcs from sun outward & between rings
+  const drawn = new Set();
+  PALS.forEach(p => {
+    const partner = bestPalId(p); if (!partner) return;
+    const k = [p.id, partner].sort().join('::');
+    if (drawn.has(k)) return; drawn.add(k);
+    const A = positions.get(p.id), B = positions.get(partner); if (!A||!B) return;
+    const mx = (A.x + B.x) / 2 + (A.y - B.y) * 0.25;
+    const my = (A.y + B.y) / 2 - (A.x - B.x) * 0.25;
+    links += `<path class="orb-link" d="M ${A.x.toFixed(2)} ${A.y.toFixed(2)} Q ${mx.toFixed(2)} ${my.toFixed(2)} ${B.x.toFixed(2)} ${B.y.toFixed(2)}"/>`;
+  });
+  const activePal = PALS.find(p => p.id === ACTIVE);
+  stage.innerHTML = `
+    <svg class="study-svg" viewBox="0 0 100 100" preserveAspectRatio="xMidYMid meet" aria-hidden="true">
+      ${orbits}
+      ${links}
+      <g class="orb-sun">
+        <circle class="orb-sun-corona" cx="${cx}" cy="${cy}" r="9"/>
+        <circle class="orb-sun-corona" cx="${cx}" cy="${cy}" r="6.5"/>
+        <circle class="orb-sun-disc"   cx="${cx}" cy="${cy}" r="4"/>
+      </g>
+      <text class="orb-center-name" x="${cx}" y="${cy + 13}">${activePal.name.toUpperCase()}</text>
+      ${planets}
+      ${names}
+    </svg>
+  `;
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,579 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Pessimistic Pals | Database</title>
+	<link rel="stylesheet" href="../css/main.css">
+</head>
+<body data-page="database">
+	<main class="screen screen-database" data-database-root>
+		<header class="topbar panel">
+			<div>
+				<p class="eyebrow">PESSIMISTIC PALS // DATABASE</p>
+				<h1 class="screen-title">Internal Reference</h1>
+			</div>
+			<p class="date-stamp" data-database-date>---</p>
+		</header>
+
+		<section class="panel database-panel">
+			<div class="section-heading-row">
+				<div>
+					<p class="eyebrow">APP SUMMARY</p>
+					<h2 class="section-title">Systems, screens, and documented misery</h2>
+				</div>
+			</div>
+			<p class="section-copy">This screen is the in-app database for designers, writers, and developers. It now mixes static canon with live save-state telemetry so the reference matches the runtime more closely.</p>
+			<div class="database-summary-grid">
+				<article class="status-card">
+					<p class="label">Pals</p>
+					<p class="status-value" data-database-pal-count>00</p>
+				</article>
+				<article class="status-card">
+					<p class="label">Screens</p>
+					<p class="status-value" data-database-screen-count>00</p>
+				</article>
+				<article class="status-card">
+					<p class="label">Events</p>
+					<p class="status-value" data-database-event-count>00</p>
+				</article>
+				<article class="status-card">
+					<p class="label">Trophies</p>
+					<p class="status-value" data-database-achievement-count>00</p>
+				</article>
+			</div>
+		</section>
+
+		<section class="panel database-panel">
+			<div class="section-heading-row">
+				<div>
+					<p class="eyebrow">TABLE OF CONTENTS</p>
+					<h2 class="section-title">Jump to the relevant problem</h2>
+				</div>
+				<p class="section-note">Anchor links</p>
+			</div>
+			<div class="database-toc-grid">
+				<a class="ghost-link database-toc-link" href="#save">Save</a>
+				<a class="ghost-link database-toc-link" href="#access">Access</a>
+				<a class="ghost-link database-toc-link" href="#screens">Screens</a>
+				<a class="ghost-link database-toc-link" href="#roster">Roster</a>
+				<a class="ghost-link database-toc-link" href="#lineage">Lineage</a>
+				<a class="ghost-link database-toc-link" href="#world">World</a>
+				<a class="ghost-link database-toc-link" href="#planets">Planets</a>
+				<a class="ghost-link database-toc-link" href="#moons">Moons</a>
+				<a class="ghost-link database-toc-link" href="#tribes">Tribes</a>
+				<a class="ghost-link database-toc-link" href="#currencies">Currencies</a>
+				<a class="ghost-link database-toc-link" href="#needs">Needs</a>
+				<a class="ghost-link database-toc-link" href="#care">Care</a>
+				<a class="ghost-link database-toc-link" href="#tasks">Tasks</a>
+				<a class="ghost-link database-toc-link" href="#load">Load</a>
+				<a class="ghost-link database-toc-link" href="#calendar">Calendar</a>
+				<a class="ghost-link database-toc-link" href="#seasonal">Seasonal</a>
+				<a class="ghost-link database-toc-link" href="#disappointment">Disappointment</a>
+				<a class="ghost-link database-toc-link" href="#achievements">Trophies</a>
+				<a class="ghost-link database-toc-link" href="#habits">Habits</a>
+				<a class="ghost-link database-toc-link" href="#lab">Lab</a>
+				<a class="ghost-link database-toc-link" href="#pals">Pals</a>
+				<a class="ghost-link database-toc-link" href="#items">Items</a>
+				<a class="ghost-link database-toc-link" href="#uiux">UI / UX</a>
+				<a class="ghost-link database-toc-link" href="#state">State</a>
+			</div>
+		</section>
+
+		<section class="panel database-panel" id="access">
+			<div class="section-heading-row">
+				<div>
+					<p class="eyebrow">ACCESS MAP</p>
+					<h2 class="section-title">One-screen cheat sheet for every HTML page</h2>
+				</div>
+				<p class="section-note" data-database-access-count-note>00 ROUTES</p>
+			</div>
+			<p class="section-copy">Use this list when you only need the route. The screen registry below keeps the longer responsibility notes, but this panel tells you exactly where to tap.</p>
+			<div class="database-access-grid" data-database-access-grid></div>
+		</section>
+
+		<section class="panel database-panel" id="save">
+			<div class="section-heading-row">
+				<div>
+					<p class="eyebrow">LIVE SAVE</p>
+					<h2 class="section-title">Current local state and active pressure</h2>
+				</div>
+				<p class="section-note">Runtime snapshot</p>
+			</div>
+			<p class="section-copy" data-database-save-copy>Save telemetry pending.</p>
+			<div class="database-summary-grid database-live-summary-grid">
+				<article class="status-card">
+					<p class="label">Owned</p>
+					<p class="status-value" data-database-owned-count>00</p>
+				</article>
+				<article class="status-card">
+					<p class="label">Open Tasks</p>
+					<p class="status-value" data-database-open-task-count>00</p>
+				</article>
+				<article class="status-card">
+					<p class="label">Habits 7D</p>
+					<p class="status-value" data-database-habit-count>0/7</p>
+				</article>
+				<article class="status-card">
+					<p class="label">Clone Log</p>
+					<p class="status-value" data-database-clone-count>00</p>
+				</article>
+			</div>
+		</section>
+
+		<section class="panel database-panel" id="screens">
+			<div class="section-heading-row">
+				<div>
+					<p class="eyebrow">SCREEN REGISTRY</p>
+					<h2 class="section-title">Every page shell and what it is responsible for</h2>
+				</div>
+				<p class="section-note" data-database-screen-count-note>00 PAGES</p>
+			</div>
+			<div class="database-screen-grid" data-database-screen-grid></div>
+		</section>
+
+		<section class="panel database-panel" id="roster">
+			<div class="section-heading-row">
+				<div>
+					<p class="eyebrow">LIVE ROSTER</p>
+					<h2 class="section-title">Owned pals, trust state, and current condition</h2>
+				</div>
+				<p class="section-note" data-database-roster-count>0 TRACKED</p>
+			</div>
+			<div class="database-roster-grid" data-database-roster-grid></div>
+		</section>
+
+		<section class="panel database-panel" id="lineage">
+			<div class="section-heading-row">
+				<div>
+					<p class="eyebrow">CLONE LINEAGE</p>
+					<h2 class="section-title">Recent stored variations and active bonus source</h2>
+				</div>
+				<p class="section-note" data-database-lineage-count>0 LOGGED</p>
+			</div>
+			<ul class="database-lineage-list" data-database-lineage-list></ul>
+		</section>
+
+		<section class="panel database-panel" id="world">
+			<div class="section-heading-row">
+				<div>
+					<p class="eyebrow">WORLD LORE</p>
+					<h2 class="section-title">The Diminishing — field notes</h2>
+				</div>
+				<p class="section-note">Canon</p>
+			</div>
+			<div class="lore-world-grid" data-world-lore-grid></div>
+		</section>
+
+		<section class="panel database-panel" id="planets">
+			<div class="section-heading-row">
+				<div>
+					<p class="eyebrow">PLANETS</p>
+					<h2 class="section-title">Ten orbits. Each one worse in a different way.</h2>
+				</div>
+				<p class="section-note" data-planet-count>00 LOGGED</p>
+			</div>
+			<div class="lore-planet-grid" data-planet-grid></div>
+		</section>
+
+		<section class="panel database-panel" id="moons">
+			<div class="section-heading-row">
+				<div>
+					<p class="eyebrow">MOONS</p>
+					<h2 class="section-title">Satellites with opinions.</h2>
+				</div>
+				<p class="section-note" data-moon-count>00 LOGGED</p>
+			</div>
+			<div class="lore-moon-grid" data-moon-grid></div>
+		</section>
+
+		<section class="panel database-panel" id="tribes">
+			<div class="section-heading-row">
+				<div>
+					<p class="eyebrow">TRIBES</p>
+					<h2 class="section-title">Ten communities. Ten ways to cope.</h2>
+				</div>
+				<p class="section-note" data-tribe-count>00 LOGGED</p>
+			</div>
+			<div class="lore-tribe-grid" data-tribe-grid></div>
+		</section>
+
+		<section class="panel database-panel" id="currencies">
+			<p class="eyebrow">CURRENCIES AND CORE STATS</p>
+			<h2 class="section-title">Reward pressure, storage, and pacing</h2>
+			<p class="section-copy">The app uses multiple tracked values, but Gloom is the core operational currency. Streak and mood act as longer-term state bridges across daily behavior.</p>
+			<div class="database-table-wrap">
+				<table class="database-table">
+					<thead>
+						<tr><th>Stat</th><th>Role</th><th>How It Changes</th></tr>
+					</thead>
+					<tbody>
+						<tr><td>Gloom</td><td>Main earn/spend currency</td><td>Tasks, calendar, oracle, disappointment; spent on care</td></tr>
+						<tr><td>XP</td><td>Secondary progression reserve</td><td>Daily Disappointment and calendar impact</td></tr>
+						<tr><td>Luckdust</td><td>Rare streak / chamber currency</td><td>Every 3rd streak day and some oracle outcomes</td></tr>
+						<tr><td>Streak</td><td>Consecutive progress days</td><td>Driven by <span class="database-code-inline">meta.lastProgressDate</span></td></tr>
+						<tr><td>Mood</td><td>Per-pal emotional state</td><td>Tasks, neglect, care pressure, and calendar impact</td></tr>
+					</tbody>
+				</table>
+			</div>
+		</section>
+
+		<section class="panel database-panel" id="needs">
+			<p class="eyebrow">NEEDS SYSTEM</p>
+			<h2 class="section-title">Slow decline, measured precisely</h2>
+			<p class="section-copy">The active Pal's care state decays over time. Three needs drain downward while plague rises upward toward a hard failure state.</p>
+			<div class="database-table-wrap">
+				<table class="database-table">
+					<thead>
+						<tr><th>Need</th><th>Start</th><th>Hourly Change</th><th>Thresholds</th></tr>
+					</thead>
+					<tbody>
+						<tr><td>Hunger</td><td>80</td><td>-2.2</td><td>Warn at 55 or below, critical at 25 or below</td></tr>
+						<tr><td>Boredom</td><td>80</td><td>-1.4</td><td>Warn at 55 or below, critical at 25 or below</td></tr>
+						<tr><td>Mood</td><td>60</td><td>-0.8</td><td>Warn at 55 or below, critical at 25 or below</td></tr>
+						<tr><td>Plague</td><td>10</td><td>+1.1</td><td>Warn at 45+, plague tone at 75+, full plague at 100</td></tr>
+					</tbody>
+				</table>
+			</div>
+		</section>
+
+		<section class="panel database-panel" id="care">
+			<p class="eyebrow">CARE SYSTEM</p>
+			<h2 class="section-title">Maintenance actions and hostile randomness</h2>
+			<p class="section-copy">Care spends Gloom to counter real-time decay. The Dread Oracle adds a daily random outcome, and the Orbit Burden panel shows when calendar debt is spilling into maintenance.</p>
+			<div class="database-table-wrap">
+				<table class="database-table">
+					<thead>
+						<tr><th>Action</th><th>Cost</th><th>Effect</th></tr>
+					</thead>
+					<tbody>
+						<tr><td>Feed</td><td>3 Gloom</td><td>+28 hunger</td></tr>
+						<tr><td>Entertain</td><td>2 Gloom</td><td>+22 boredom</td></tr>
+						<tr><td>Comfort</td><td>Free</td><td>+18 mood</td></tr>
+						<tr><td>Sanitize</td><td>4 Gloom</td><td>-34 plague</td></tr>
+						<tr><td>Cure</td><td>5 Gloom</td><td>Clears full plague state</td></tr>
+					</tbody>
+				</table>
+			</div>
+			<pre class="database-code">Oracle outcomes: +6 Gloom, +4 Gloom, +2 Gloom, +1 Luckdust, +2 Luckdust, Nothing, Nothing, Plague</pre>
+		</section>
+
+		<section class="panel database-panel" id="tasks">
+			<p class="eyebrow">TASK CONSOLE</p>
+			<h2 class="section-title">Manual tasks only</h2>
+			<p class="section-copy">The Home screen lists manual and library tasks. Calendar events live exclusively on the Schedule page and are not projected into the task list. Completed items move into the hamburger drawer below the active list.</p>
+			<pre class="database-code">Manual task schema:
+{
+  id,
+  title,
+  completed,
+  rewardClaimed,
+  createdAt,
+  completedAt,
+  source,
+  intensity,
+  socialWeight,
+  energyCost,
+  dreadLevel,
+}</pre>
+			<p class="section-copy">Calendar pressure (overdue mood penalties, pal dialogue) still flows through <span class="database-code-inline">getCalendarPressureSnapshot(state)</span> independently of the task console.</p>
+		</section>
+
+		<section class="panel database-panel" id="load">
+			<p class="eyebrow">LOAD SYSTEM</p>
+			<h2 class="section-title">Four-part task weight translated into reward and pressure</h2>
+			<p class="section-copy">Load is one of the app's most important mechanics. It lets manual tasks and calendar events carry emotional and practical weight instead of behaving like flat checklist items.</p>
+			<pre class="database-code">load = intensity + socialWeight + energyCost + dreadLevel
+range = 0..20
+
+manual gloom = 5 + floor(load / 2)
+manual mood  = 6 + (load >= 12 ? 4 : load >= 6 ? 2 : 0)</pre>
+			<div class="database-table-wrap">
+				<table class="database-table">
+					<thead>
+						<tr><th>Load Range</th><th>Gloom</th><th>Mood Boost</th></tr>
+					</thead>
+					<tbody>
+						<tr><td>0</td><td>5</td><td>+6</td></tr>
+						<tr><td>1-5</td><td>5-7</td><td>+6</td></tr>
+						<tr><td>6-11</td><td>8-10</td><td>+8</td></tr>
+						<tr><td>12-20</td><td>11-15</td><td>+10</td></tr>
+					</tbody>
+				</table>
+			</div>
+			<pre class="database-code">Worked example:
+intensity    = 3
+socialWeight = 2
+energyCost   = 3
+dreadLevel   = 4
+load         = 12
+
+reward       = 11 Gloom
+mood boost   = +10</pre>
+			<p class="section-copy">Rated manual tasks show <span class="database-code-inline">I / S / E / D</span> pills plus <span class="database-code-inline">Load N</span>. Unrated tasks now show <span class="database-code-inline">Not rated yet</span>. Calendar tasks do not render the manual stat row.</p>
+		</section>
+
+		<section class="panel database-panel" id="calendar">
+			<p class="eyebrow">CALENDAR SYSTEM</p>
+			<h2 class="section-title">Emotional Orbit as planner, pressure engine, and streak bridge</h2>
+			<p class="section-copy">The calendar drives more than scheduling. Event completions affect task rendering, habits, streak, care pressure, and Pal mood.</p>
+			<pre class="database-code">Event fields:
+id, title, date, startTime, endTime, allDay, category, recurrence,
+notes, intensity, socialWeight, energyCost, dreadLevel,
+seasonalEventId, createdAt, updatedAt</pre>
+			<div class="database-table-wrap">
+				<table class="database-table">
+					<thead>
+						<tr><th>Categories</th><th>Recurrence</th><th>Key Functions</th></tr>
+					</thead>
+					<tbody>
+						<tr><td>focus, appointment, social, maintenance, celebration, recovery</td><td>none, daily, weekly, monthly</td><td>completeCalendarOccurrence, applyCalendarPalImpact, applyCalendarCompletionLinks, getCalendarPressureSnapshot, getCalendarInterferenceState</td></tr>
+					</tbody>
+				</table>
+			</div>
+			<p class="section-copy">Overdue pressure is applied once per new day and reduces care reserves plus Pal mood when unresolved orbit items accumulate.</p>
+		</section>
+
+		<section class="panel database-panel" id="seasonal">
+			<p class="eyebrow">SEASONAL INTERFERENCE</p>
+			<h2 class="section-title">When the atmosphere is driven by events instead of ordinary decline</h2>
+			<p class="section-copy">The interference panel prioritizes live seasonal events first, then overdue orbit items, then upcoming orbit items, and finally a default calm-state fallback.</p>
+			<div class="database-table-wrap">
+				<table class="database-table">
+					<thead>
+						<tr><th>Event ID</th><th>Name</th><th>Dates</th><th>Theme</th></tr>
+					</thead>
+					<tbody>
+						<tr><td>annual_disappointment_reset</td><td>The Annual Disappointment Reset</td><td>Jan 1-7</td><td>reset-gloom</td></tr>
+						<tr><td>ugh_fine_love</td><td>Ugh, Fine. A Love Event.</td><td>Feb 10-14</td><td>bruise-heart</td></tr>
+						<tr><td>their_favorite_day</td><td>Their Favorite Day (They Deny It)</td><td>Oct 25-31</td><td>hollow-delight</td></tr>
+					</tbody>
+				</table>
+			</div>
+		</section>
+
+		<section class="panel database-panel" id="disappointment">
+			<p class="eyebrow">DAILY DISAPPOINTMENT</p>
+			<h2 class="section-title">One login reward per day, usually delivered with contempt</h2>
+			<p class="section-copy">This system rolls once per day during session prep and stores the result in a reward log. Seasonal events slightly increase cosmetic item odds.</p>
+			<div class="database-table-wrap">
+				<table class="database-table">
+					<thead>
+						<tr><th>Reward</th><th>Weight</th><th>Amount</th></tr>
+					</thead>
+					<tbody>
+						<tr><td>Gloom Coins</td><td>3.2</td><td>2-6</td></tr>
+						<tr><td>XP</td><td>2.2</td><td>4-9</td></tr>
+						<tr><td>Cosmetic Item</td><td>1.1</td><td>one item</td></tr>
+						<tr><td>Literally Nothing</td><td>4.5</td><td>0</td></tr>
+					</tbody>
+				</table>
+			</div>
+		</section>
+
+		<section class="panel database-panel" id="achievements">
+			<p class="eyebrow">ANTI-ACHIEVEMENTS</p>
+			<h2 class="section-title">Dusty trophies for suspicious effort</h2>
+			<div class="database-table-wrap">
+				<table class="database-table">
+					<thead>
+						<tr><th>ID</th><th>Title</th><th>Condition</th></tr>
+					</thead>
+					<tbody>
+						<tr><td>tried_once</td><td>Tried Once</td><td>Opened the app but added no tasks</td></tr>
+						<tr><td>participation</td><td>Participation</td><td>Completed at least one task in a 7-day window</td></tr>
+						<tr><td>it_could_be_worse</td><td>It Could Be Worse</td><td>Streak broke and user returned the same day</td></tr>
+						<tr><td>administrative_gloom</td><td>Administrative Gloom</td><td>Seven-day open run with zero completions</td></tr>
+					</tbody>
+				</table>
+			</div>
+		</section>
+
+		<section class="panel database-panel" id="habits">
+			<p class="eyebrow">HABITS</p>
+			<h2 class="section-title">Seven-day ledger for small repeated acts</h2>
+			<p class="section-copy">Habits are stored as a date-keyed object and rendered as a rolling 7-day window. Some calendar templates can auto-log habits when an event completes.</p>
+			<pre class="database-code">habitHistory = {
+  'YYYY-MM-DD': true,
+}</pre>
+		</section>
+
+		<section class="panel database-panel" id="lab">
+			<p class="eyebrow">CLONE LAB</p>
+			<h2 class="section-title">Persistent chamber timer and mutation reveal</h2>
+			<p class="section-copy">The Lab treats cloning as a timed cycle rather than a one-click reward. It now exposes the dominant/base pair, live compatibility, chamber length, and clone archive count directly in the room.</p>
+			<pre class="database-code">CLONE_CYCLE_BASE_MS = 45000
+CLONE_CYCLE_STEP_MS = 5000
+
+clone = {
+  activeCycle,
+  revealedVariant,
+  history,
+  dialogue,
+	  clonePair,
+}</pre>
+		</section>
+
+		<section class="panel database-panel" id="pals">
+			<p class="eyebrow">PAL SYSTEM</p>
+			<h2 class="section-title">Character roster, lore structure, and mood ledger</h2>
+			<p class="section-copy">All Pals use they/them pronouns. Each has lore, stats, and dialogue hooks. Later-authored systems still have uneven bespoke coverage, but Yun and Zenji are now selectable roster entries rather than placeholders.</p>
+			<div class="database-table-wrap">
+				<table class="database-table">
+					<thead>
+						<tr><th>Pal</th><th>ID</th><th>Diagnosis</th><th>Luck</th><th>Placeholder</th></tr>
+					</thead>
+					<tbody>
+						<tr><td>Ahote</td><td>ahote</td><td>ADHD</td><td>10</td><td>No</td></tr>
+						<tr><td>Brutus</td><td>brutus</td><td>Depression</td><td>9</td><td>No</td></tr>
+						<tr><td>Centrama</td><td>centrama</td><td>Anxiety</td><td>9</td><td>No</td></tr>
+						<tr><td>Doolin</td><td>doolin</td><td>NPD</td><td>8</td><td>No</td></tr>
+						<tr><td>Elbjorg</td><td>elbjorg</td><td>PTSD</td><td>7</td><td>No</td></tr>
+						<tr><td>Veruca</td><td>veruca</td><td>BDD</td><td>6</td><td>No</td></tr>
+						<tr><td>Winta</td><td>winta</td><td>HPD</td><td>5</td><td>No</td></tr>
+						<tr><td>Xio</td><td>xio</td><td>IED</td><td>1</td><td>No</td></tr>
+						<tr><td>Yun</td><td>yun</td><td>Autism</td><td>1</td><td>No</td></tr>
+						<tr><td>Zenji</td><td>zenji</td><td>OCPD</td><td>10</td><td>No</td></tr>
+					</tbody>
+				</table>
+			</div>
+			<p class="section-copy">Calendar template coverage is currently narrow: Ahote is the only fully authored entry in <span class="database-code-inline">CALENDAR_PAL_TEMPLATES</span>.</p>
+		</section>
+
+		<section class="panel database-panel" id="items">
+			<p class="eyebrow">ITEM SYSTEM</p>
+			<h2 class="section-title">Collectible objects with unfortunate histories</h2>
+			<div class="database-table-wrap">
+				<table class="database-table">
+					<thead>
+						<tr><th>Item</th><th>Rarity</th><th>Source</th></tr>
+					</thead>
+					<tbody>
+						<tr><td>Burnt Toast Relic</td><td>common</td><td>daily_disappointment</td></tr>
+						<tr><td>Staring Idol</td><td>uncommon</td><td>daily_disappointment</td></tr>
+						<tr><td>Receipt of Minor Ruin</td><td>common</td><td>streak</td></tr>
+						<tr><td>Dust Locket</td><td>rare</td><td>seasonal</td></tr>
+						<tr><td>Cursed Participation Ribbon</td><td>cursed</td><td>achievement</td></tr>
+						<tr><td>Mildew Medal</td><td>uncommon</td><td>seasonal</td></tr>
+						<tr><td>Velvet Grudge</td><td>rare</td><td>daily_disappointment</td></tr>
+						<tr><td>Lint Crown</td><td>common</td><td>streak</td></tr>
+					</tbody>
+				</table>
+			</div>
+		</section>
+
+		<section class="panel database-panel" id="uiux">
+			<p class="eyebrow">UI AND UX DESIGN SYSTEM</p>
+			<h2 class="section-title">Dark brutalist sci-fi with pessimistic administrative copy</h2>
+			<p class="section-copy">The interface is built from compact panels, mono labels, zero-padded values, and sparse accent color. It is intentionally dry and mechanical rather than playful.</p>
+			<ul class="database-list">
+				<li>Display font: Rajdhani</li>
+				<li>Mono utility font: Share Tech Mono</li>
+				<li>Layout width capped at 420px</li>
+				<li>Bottom nav uses five primary destinations: Tasks, Habits, Streak, Calendar, Care</li>
+				<li>Secondary utility row links Talk, Lab, Archive, Change Pal, and Database across major app screens</li>
+				<li>Primary actions use <span class="database-code-inline">action-button</span></li>
+				<li>Secondary navigation uses <span class="database-code-inline">ghost-link</span></li>
+				<li>Section headers follow eyebrow + title pairing</li>
+				<li>Shared pal frames fall back to ship art when portrait art is unavailable</li>
+				<li>Task rows, event cards, and status cards all use shared dark panel language</li>
+			</ul>
+			<div class="database-table-wrap">
+				<table class="database-table">
+					<thead>
+						<tr><th>Screen</th><th>Title</th><th>Primary Responsibility</th></tr>
+					</thead>
+					<tbody>
+						<tr><td>../index.html</td><td>App Router</td><td>root entry that redirects to onboarding, roster, or home from saved state</td></tr>
+						<tr><td>tasks.html</td><td>Daily Decline</td><td>tasks, check-in, emotional weather, calendar summary</td></tr>
+						<tr><td>home.html</td><td>Maintenance Loop</td><td>needs, actions, oracle, orbit burden</td></tr>
+						<tr><td>habits.html</td><td>Routine Ledger</td><td>7-day habit tracking</td></tr>
+						<tr><td>streak.html</td><td>Persistence Report</td><td>streak, event watch, anti-achievements</td></tr>
+						<tr><td>calendar.html</td><td>Emotional Orbit</td><td>scheduling, month grid, day detail, event editor</td></tr>
+						<tr><td>adopt.html</td><td>Adoption Oracle</td><td>standalone quiz that matches the user to a pal profile</td></tr>
+						<tr><td>companion.html</td><td>Talk to Your Pal</td><td>standalone conversation shell with saved chat history</td></tr>
+						<tr><td>lab.html</td><td>Clone Chamber</td><td>cloning cycle, countdown, mutation reveal</td></tr>
+						<tr><td>collection.html</td><td>Specimen Archive</td><td>pal roster, constellation map, item wall, clone archive</td></tr>
+						<tr><td>onboarding.html</td><td>Initial Assignment Pending</td><td>transmission-led onboarding flow before first assignment</td></tr>
+						<tr><td>choose-pal.html</td><td>Choose Your Pal</td><td>pal adoption flow, roster switching, and acquisition gating</td></tr>
+						<tr><td>database.html</td><td>Internal Reference</td><td>live system reference, lore catalog, and save-state snapshot</td></tr>
+					</tbody>
+				</table>
+			</div>
+		</section>
+
+		<section class="panel database-panel" id="state">
+			<p class="eyebrow">STATE ARCHITECTURE</p>
+			<h2 class="section-title">One persisted object, many tightly linked systems</h2>
+			<p class="section-copy">All runtime state is normalized into one JSON object and saved through the same mutation path. This keeps the architecture simple but intentionally cross-coupled.</p>
+			<pre class="database-code">Core lifecycle:
+loadState()
+saveState()
+setAppState()
+ensureStateIntegrity()
+prepareSessionState()</pre>
+			<ul class="database-list">
+				<li>Normalization upgrades older saves to the current schema</li>
+				<li>Session prep updates open history and streak breaks</li>
+				<li>Seasonal state syncs on app open</li>
+				<li>Neglect and mood sync on app open</li>
+				<li>Overdue calendar pressure applies once per new day</li>
+				<li>Anti-achievements are evaluated from real usage behavior</li>
+			</ul>
+		</section>
+
+		<section class="panel database-panel">
+			<div class="section-heading-row">
+				<div>
+					<p class="eyebrow">EXTERNAL SOURCE</p>
+					<h2 class="section-title">Markdown reference file</h2>
+				</div>
+				<p class="section-note">Project root</p>
+			</div>
+			<p class="section-copy">The longer markdown version still exists for editing outside the runtime UI.</p>
+			<a class="ghost-link" href="../APP_DATABASE.md">Open APP_DATABASE.md</a>
+		</section>
+
+		<nav class="pals-access-row" aria-label="Secondary">
+			<a class="ghost-link pals-access-link" href="companion.html">Talk</a>
+			<a class="ghost-link pals-access-link" href="lab.html">Lab</a>
+			<a class="ghost-link pals-access-link" href="collection.html">Archive</a>
+			<a class="ghost-link pals-access-link" href="choose-pal.html">Change Pal</a>
+			<a class="ghost-link pals-access-link is-active" href="database.html">Database</a>
+		</nav>
+
+		<nav class="bottom-nav panel" aria-label="Primary">
+			<a class="nav-link" href="tasks.html"><span class="nav-icon" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 20 20" fill="none"><rect x="4" y="3" width="12" height="14" rx="1" stroke="currentColor" stroke-width="1.5"/><line x1="7" y1="7" x2="13" y2="7" stroke="currentColor" stroke-width="1.5"/><line x1="7" y1="10" x2="13" y2="10" stroke="currentColor" stroke-width="1.5"/><line x1="7" y1="13" x2="11" y2="13" stroke="currentColor" stroke-width="1.5"/></svg></span><span class="nav-label">Tasks</span></a>
+			<a class="nav-link" href="habits.html"><span class="nav-icon" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 20 20" fill="none"><circle cx="4.5" cy="10" r="2" stroke="currentColor" stroke-width="1.5"/><circle cx="10" cy="10" r="2" stroke="currentColor" stroke-width="1.5"/><circle cx="15.5" cy="10" r="2" stroke="currentColor" stroke-width="1.5"/><line x1="6.5" y1="10" x2="8" y2="10" stroke="currentColor" stroke-width="1.5"/><line x1="12" y1="10" x2="13.5" y2="10" stroke="currentColor" stroke-width="1.5"/></svg></span><span class="nav-label">Routine</span></a>
+			<a class="nav-link" href="home.html"><span class="nav-icon" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 20 20" fill="none"><path d="M10 15.5S3 11 3 6.5a4 4 0 0 1 7-2.65A4 4 0 0 1 17 6.5C17 11 10 15.5 10 15.5z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></svg></span><span class="nav-label">Care</span></a>
+			<a class="nav-link" href="calendar.html"><span class="nav-icon" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 20 20" fill="none"><rect x="3" y="5" width="14" height="12" rx="1" stroke="currentColor" stroke-width="1.5"/><line x1="3" y1="9" x2="17" y2="9" stroke="currentColor" stroke-width="1.5"/><line x1="7" y1="3" x2="7" y2="7" stroke="currentColor" stroke-width="1.5"/><line x1="13" y1="3" x2="13" y2="7" stroke="currentColor" stroke-width="1.5"/></svg></span><span class="nav-label">Schedule</span></a>
+			<a class="nav-link" href="lab.html"><span class="nav-icon" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 20 20" fill="none"><path d="M8 3h4M9 3v6l-3.5 5.5A1 1 0 0 0 6.4 16h7.2a1 1 0 0 0 .9-1.5L11 9V3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="nav-label">Lab</span></a>
+			<a class="nav-link" href="collection.html"><span class="nav-icon" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 20 20" fill="none"><rect x="3" y="3" width="6" height="6" rx="1" stroke="currentColor" stroke-width="1.5"/><rect x="11" y="3" width="6" height="6" rx="1" stroke="currentColor" stroke-width="1.5"/><rect x="3" y="11" width="6" height="6" rx="1" stroke="currentColor" stroke-width="1.5"/><rect x="11" y="11" width="6" height="6" rx="1" stroke="currentColor" stroke-width="1.5"/></svg></span><span class="nav-label">Collection</span></a>
+			<a class="nav-link" href="companion.html"><span class="nav-icon" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 20 20" fill="none"><path d="M4 4h12a1 1 0 0 1 1 1v7a1 1 0 0 1-1 1H8l-4 3V5a1 1 0 0 1 1-1z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></svg></span><span class="nav-label">Companion</span></a>
+		</nav>
+	</main>
+
+	<script src="../js/constants.js"></script>
+	<script src="../js/utils.js"></script>
+	<script src="../js/data.js"></script>
+	<script src="../js/normalize.js"></script>
+	<script src="../js/state.js"></script>
+	<script src="../js/ghost.js"></script>
+	<script src="../js/tooltips.js"></script>
+	<script src="../js/needs.js"></script>
+	<script src="../js/trust.js"></script>
+	<script src="../js/clone.js"></script>
+	<script src="../js/clone-reveal.js"></script>
+	<script src="../js/pal-helpers.js"></script>
+	<script src="../js/dialogue.js"></script>
+	<script src="../js/oracle.js"></script>
+	<script src="../js/seasonal.js"></script>
+	<script src="../js/items.js"></script>
+	<script src="../js/shop.js"></script>
+	<script src="../js/calendar-helpers.js"></script>
+	<script src="../js/audio.js"></script>
+	<script src="../js/feedback.js"></script>
+	<script src="../js/activity-log.js"></script>
+	<script src="../js/main.js"></script>
+</body>
+</html>

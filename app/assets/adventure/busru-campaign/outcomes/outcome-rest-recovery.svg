@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900">
+  <rect width="1600" height="900" fill="#0f1410"/>
+  <circle cx="1240" cy="150" r="96" fill="#f5e1a3" opacity="0.28"/>
+  <rect x="280" y="580" width="1040" height="120" rx="40" fill="#2a4330"/>
+  <path d="M520 560 C620 470 970 470 1080 560" fill="none" stroke="#d6e8c5" stroke-width="16" stroke-linecap="round"/>
+  <text x="120" y="150" fill="#f1f4dc" font-family="Georgia, serif" font-size="56">Outcome Overlay</text>
+  <text x="120" y="228" fill="#d8e8d0" font-family="Verdana, sans-serif" font-size="30">Rest Recovery</text>
+  <text x="120" y="308" fill="#f5cf73" font-family="Verdana, sans-serif" font-size="24">Placeholder for quiet camp, shelter, and recovery art</text>
+</svg>

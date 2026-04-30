@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Pessimistic Pals | Calendar</title>
+	<link rel="stylesheet" href="../css/main.css">
+</head>
+<body data-page="calendar">
+	<main class="screen screen-calendar" data-calendar-root>
+		<header class="topbar panel">
+			<div>
+				<p class="eyebrow">PESSIMISTIC PALS // SCHEDULE</p>
+				<h1 class="screen-title">Schedule</h1>
+			</div>
+			<p class="date-stamp" data-calendar-date>---</p>
+		</header>
+
+		<section class="panel calendar-month-panel">
+			<div class="section-heading-row calendar-month-heading">
+				<button type="button" class="ghost-link calendar-month-button" data-calendar-prev>&larr; Prev</button>
+				<div>
+					<p class="eyebrow">MONTH VIEW</p>
+					<h2 class="section-title" data-calendar-month-label>---</h2>
+				</div>
+				<button type="button" class="ghost-link calendar-month-button" data-calendar-next>Next &rarr;</button>
+			</div>
+			<div class="calendar-month-toolbar">
+				<button type="button" class="ghost-link calendar-today-button" data-calendar-today>Today</button>
+				<div class="calendar-legend" aria-label="Day cell legend">
+					<span class="calendar-legend-item"><span class="calendar-day-dot is-habit"></span>Habit</span>
+					<span class="calendar-legend-item"><span class="calendar-day-dot is-done"></span>Done</span>
+					<span class="calendar-legend-item"><span class="calendar-day-dot is-seasonal"></span>Season</span>
+				</div>
+			</div>
+
+			<div class="calendar-weekdays" aria-hidden="true">
+				<span>SUN</span>
+				<span>MON</span>
+				<span>TUE</span>
+				<span>WED</span>
+				<span>THU</span>
+				<span>FRI</span>
+				<span>SAT</span>
+			</div>
+			<div class="calendar-grid" data-calendar-grid></div>
+		</section>
+
+		<section class="panel calendar-detail-panel">
+			<div class="section-heading-row">
+				<div>
+					<p class="eyebrow">DAY DETAIL</p>
+					<h2 class="section-title" data-calendar-day-title>---</h2>
+				</div>
+				<p class="section-note">Live schedule scan</p>
+			</div>
+			<p class="section-copy" data-calendar-day-note>Select a date to inspect the damage.</p>
+			<ul class="calendar-event-list" data-calendar-event-list></ul>
+			<details class="calendar-completed-collapse" data-calendar-completed-collapse hidden>
+				<summary class="calendar-completed-summary">
+					<span class="calendar-completed-chevron" aria-hidden="true">&#9656;</span>
+					<span class="calendar-completed-label">Done today</span>
+					<span class="calendar-completed-count" data-calendar-completed-count>0</span>
+				</summary>
+				<ul class="calendar-event-list calendar-completed-list" data-calendar-completed-list></ul>
+				<p class="task-meta calendar-completed-foot">Resets at the start of each day.</p>
+			</details>
+		</section>
+
+		<section class="panel calendar-form-panel">
+			<div class="calendar-form-header">
+				<div class="calendar-form-heading">
+					<p class="eyebrow">+ ADD EVENT</p>
+					<h2 class="section-title" data-calendar-form-heading>Drop something on the calendar</h2>
+				</div>
+				<button type="button" class="calendar-form-pick" data-open-event-library>
+					<span class="calendar-form-pick-icon" aria-hidden="true">≡</span>
+					<span>Pick from list</span>
+				</button>
+			</div>
+
+			<div class="event-library-panel library-panel" data-event-library-panel hidden>
+				<div class="section-heading-row library-panel-head">
+					<p class="eyebrow">EVENT LIBRARY // PICK ONE</p>
+					<button type="button" class="btn-close" data-close-event-library>CLOSE</button>
+				</div>
+				<label class="library-search-row">
+					<span class="library-search-icon" aria-hidden="true">⌕</span>
+					<input
+						type="search"
+						class="library-search-input"
+						data-event-library-search
+						placeholder="Search events..."
+						autocomplete="off"
+						spellcheck="false"
+					>
+				</label>
+				<div class="event-library-tabs library-tabs" data-event-library-tabs></div>
+				<div class="event-library-list library-list" data-event-library-list></div>
+			</div>
+
+			<p class="calendar-form-hint" data-calendar-form-note>Recurring events repeat until removed. Time conflicts are surfaced in the day panel.</p>
+
+			<form class="calendar-form" data-calendar-form>
+				<input type="hidden" name="eventId" value="">
+
+				<label class="calendar-field calendar-field-full">
+					<span class="label">Title</span>
+					<input class="task-input" type="text" name="title" maxlength="80" placeholder="Dent the void with one plan.">
+				</label>
+
+				<div class="calendar-form-grid two-up">
+					<label class="calendar-field">
+						<span class="label">Date</span>
+						<input class="task-input" type="date" name="date">
+					</label>
+					<label class="calendar-field calendar-checkbox-field">
+						<span class="label">All Day</span>
+						<input type="checkbox" name="allDay">
+					</label>
+				</div>
+
+				<div class="calendar-form-grid two-up">
+					<label class="calendar-field">
+						<span class="label">Start</span>
+						<input class="task-input" type="time" name="startTime" data-calendar-time-input>
+					</label>
+					<label class="calendar-field">
+						<span class="label">End</span>
+						<input class="task-input" type="time" name="endTime" data-calendar-time-input>
+					</label>
+				</div>
+
+				<div class="calendar-form-grid two-up">
+					<label class="calendar-field">
+						<span class="label">Category</span>
+						<select class="task-input calendar-select" name="category">
+							<option value="focus">Focus</option>
+							<option value="appointment">Appointment</option>
+							<option value="social">Social</option>
+							<option value="maintenance">Maintenance</option>
+							<option value="celebration">Celebration</option>
+							<option value="recovery">Recovery</option>
+						</select>
+					</label>
+					<label class="calendar-field">
+						<span class="label">Recurrence</span>
+						<select class="task-input calendar-select" name="recurrence">
+							<option value="none">One Time</option>
+							<option value="daily">Daily</option>
+							<option value="weekly">Weekly</option>
+							<option value="monthly">Monthly</option>
+							<option value="yearly">Yearly</option>
+						</select>
+					</label>
+				</div>
+
+				<fieldset class="calendar-load-row">
+					<legend class="calendar-load-legend">How hard is this event? <span class="calendar-load-scale">0 – 5</span></legend>
+					<div class="calendar-form-grid metric-grid calendar-load-grid">
+						<label class="calendar-field calendar-load-field">
+							<span class="label">Intensity</span>
+							<select class="task-input calendar-select" name="intensity">
+								<option value="0">0</option>
+								<option value="1">1</option>
+								<option value="2">2</option>
+								<option value="3">3</option>
+								<option value="4">4</option>
+								<option value="5">5</option>
+							</select>
+						</label>
+						<label class="calendar-field calendar-load-field">
+							<span class="label">Social</span>
+							<select class="task-input calendar-select" name="socialWeight">
+								<option value="0">0</option>
+								<option value="1">1</option>
+								<option value="2">2</option>
+								<option value="3">3</option>
+								<option value="4">4</option>
+								<option value="5">5</option>
+							</select>
+						</label>
+						<label class="calendar-field calendar-load-field">
+							<span class="label">Energy</span>
+							<select class="task-input calendar-select" name="energyCost">
+								<option value="0">0</option>
+								<option value="1">1</option>
+								<option value="2">2</option>
+								<option value="3">3</option>
+								<option value="4">4</option>
+								<option value="5">5</option>
+							</select>
+						</label>
+						<label class="calendar-field calendar-load-field">
+							<span class="label">Dread</span>
+							<select class="task-input calendar-select" name="dreadLevel">
+								<option value="0">0</option>
+								<option value="1">1</option>
+								<option value="2">2</option>
+								<option value="3">3</option>
+								<option value="4">4</option>
+								<option value="5">5</option>
+							</select>
+						</label>
+					</div>
+				</fieldset>
+
+				<label class="calendar-field calendar-field-full">
+					<span class="label">Notes</span>
+					<textarea class="calendar-textarea" name="notes" rows="3" placeholder="Optional context, dread, logistics, escape routes."></textarea>
+				</label>
+
+				<div class="calendar-form-actions">
+					<button class="action-button" type="submit">Save Event</button>
+					<button class="ghost-link" type="button" data-calendar-clear>Clear Draft</button>
+				</div>
+			</form>
+		</section>
+
+		<section class="panel calendar-glance-panel">
+			<div class="section-heading-row">
+				<div>
+					<p class="eyebrow">MONTH AT A GLANCE</p>
+					<h2 class="section-title">Workload snapshot</h2>
+				</div>
+				<span class="calendar-glance-theme" data-calendar-theme>DEFAULT</span>
+			</div>
+
+			<div class="calendar-glance-meter" data-calendar-glance-meter>
+				<div class="calendar-glance-meter-row">
+					<span class="calendar-glance-meter-label">Selected day load</span>
+					<span class="calendar-glance-meter-value" data-calendar-load>LIGHT</span>
+				</div>
+				<div class="calendar-glance-meter-track" aria-hidden="true">
+					<span class="calendar-glance-meter-fill"></span>
+				</div>
+			</div>
+
+			<div class="calendar-glance-stats">
+				<article class="calendar-glance-stat">
+					<p class="calendar-glance-stat-value" data-calendar-month-count>00</p>
+					<p class="calendar-glance-stat-label">Events this month</p>
+				</article>
+				<article class="calendar-glance-stat">
+					<p class="calendar-glance-stat-value" data-calendar-day-count>00</p>
+					<p class="calendar-glance-stat-label">Selected day</p>
+				</article>
+			</div>
+		</section>
+
+		<section class="panel calendar-related-panel">
+			<div class="section-heading-row">
+				<div>
+					<p class="eyebrow">RELATED SYSTEMS</p>
+					<h2 class="section-title">Everything this orbit touches</h2>
+				</div>
+				<p class="section-note">Shared state</p>
+			</div>
+			<ul class="calendar-related-grid" role="list">
+				<li class="calendar-related-card is-tasks">
+					<span class="calendar-related-icon" aria-hidden="true">[ T ]</span>
+					<div class="calendar-related-body">
+						<p class="label">Tasks Left</p>
+						<p class="calendar-related-value" data-calendar-related-tasks>00</p>
+					</div>
+				</li>
+				<li class="calendar-related-card is-habits">
+					<span class="calendar-related-icon" aria-hidden="true">[ H ]</span>
+					<div class="calendar-related-body">
+						<p class="label">Habit Days</p>
+						<p class="calendar-related-value" data-calendar-related-habits>0/7</p>
+					</div>
+				</li>
+				<li class="calendar-related-card is-streak">
+					<span class="calendar-related-icon" aria-hidden="true">[ S ]</span>
+					<div class="calendar-related-body">
+						<p class="label">Primary Streak</p>
+						<p class="calendar-related-value" data-calendar-related-streak>00</p>
+					</div>
+				</li>
+			</ul>
+			<p class="section-copy calendar-related-note" data-calendar-related-note>Calendar data will surface here once it starts leaning on the rest of the app.</p>
+		</section>
+
+		<section class="panel event-panel">
+			<div class="section-heading-row">
+				<div>
+					<p class="eyebrow">SEASONAL EVENT</p>
+					<h2 class="section-title">Seasonal Interference</h2>
+				</div>
+				<p class="section-note" data-event-theme-token>DEFAULT</p>
+			</div>
+			<p class="section-copy" data-event-name>No active event. The ordinary atmosphere remains in charge.</p>
+			<p class="task-meta" data-event-dialogue>Seasonal dialogue pending.</p>
+		</section>
+
+		<nav class="pals-access-row" aria-label="Secondary">
+			<a class="ghost-link pals-access-link" href="companion.html">Talk</a>
+			<a class="ghost-link pals-access-link" href="lab.html">Lab</a>
+			<a class="ghost-link pals-access-link" href="collection.html">Archive</a>
+			<a class="ghost-link pals-access-link" href="choose-pal.html">Change Pal</a>
+			<a class="ghost-link pals-access-link" href="database.html">Database</a>
+		</nav>
+
+		<nav class="bottom-nav panel" aria-label="Primary">
+			<a class="nav-link" href="tasks.html"><span class="nav-icon" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 20 20" fill="none"><rect x="4" y="3" width="12" height="14" rx="1" stroke="currentColor" stroke-width="1.5"/><line x1="7" y1="7" x2="13" y2="7" stroke="currentColor" stroke-width="1.5"/><line x1="7" y1="10" x2="13" y2="10" stroke="currentColor" stroke-width="1.5"/><line x1="7" y1="13" x2="11" y2="13" stroke="currentColor" stroke-width="1.5"/></svg></span><span class="nav-label">Tasks</span></a>
+			<a class="nav-link" href="habits.html"><span class="nav-icon" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 20 20" fill="none"><circle cx="4.5" cy="10" r="2" stroke="currentColor" stroke-width="1.5"/><circle cx="10" cy="10" r="2" stroke="currentColor" stroke-width="1.5"/><circle cx="15.5" cy="10" r="2" stroke="currentColor" stroke-width="1.5"/><line x1="6.5" y1="10" x2="8" y2="10" stroke="currentColor" stroke-width="1.5"/><line x1="12" y1="10" x2="13.5" y2="10" stroke="currentColor" stroke-width="1.5"/></svg></span><span class="nav-label">Routine</span></a>
+			<a class="nav-link" href="home.html"><span class="nav-icon" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 20 20" fill="none"><path d="M10 15.5S3 11 3 6.5a4 4 0 0 1 7-2.65A4 4 0 0 1 17 6.5C17 11 10 15.5 10 15.5z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></svg></span><span class="nav-label">Care</span></a>
+			<a class="nav-link is-active" href="calendar.html"><span class="nav-icon" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 20 20" fill="none"><rect x="3" y="5" width="14" height="12" rx="1" stroke="currentColor" stroke-width="1.5"/><line x1="3" y1="9" x2="17" y2="9" stroke="currentColor" stroke-width="1.5"/><line x1="7" y1="3" x2="7" y2="7" stroke="currentColor" stroke-width="1.5"/><line x1="13" y1="3" x2="13" y2="7" stroke="currentColor" stroke-width="1.5"/></svg></span><span class="nav-label">Schedule</span></a>
+			<a class="nav-link" href="lab.html"><span class="nav-icon" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 20 20" fill="none"><path d="M8 3h4M9 3v6l-3.5 5.5A1 1 0 0 0 6.4 16h7.2a1 1 0 0 0 .9-1.5L11 9V3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="nav-label">Lab</span></a>
+			<a class="nav-link" href="collection.html"><span class="nav-icon" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 20 20" fill="none"><rect x="3" y="3" width="6" height="6" rx="1" stroke="currentColor" stroke-width="1.5"/><rect x="11" y="3" width="6" height="6" rx="1" stroke="currentColor" stroke-width="1.5"/><rect x="3" y="11" width="6" height="6" rx="1" stroke="currentColor" stroke-width="1.5"/><rect x="11" y="11" width="6" height="6" rx="1" stroke="currentColor" stroke-width="1.5"/></svg></span><span class="nav-label">Collection</span></a>
+			<a class="nav-link" href="companion.html"><span class="nav-icon" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 20 20" fill="none"><path d="M4 4h12a1 1 0 0 1 1 1v7a1 1 0 0 1-1 1H8l-4 3V5a1 1 0 0 1 1-1z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></svg></span><span class="nav-label">Companion</span></a>
+		</nav>
+	</main>
+
+	<script src="../js/constants.js"></script>
+	<script src="../js/utils.js"></script>
+	<script src="../js/data.js"></script>
+	<script src="../js/normalize.js"></script>
+	<script src="../js/state.js"></script>
+	<script src="../js/ghost.js"></script>
+	<script src="../js/tooltips.js"></script>
+	<script src="../js/needs.js"></script>
+	<script src="../js/trust.js"></script>
+	<script src="../js/clone.js"></script>
+	<script src="../js/clone-reveal.js"></script>
+	<script src="../js/pal-helpers.js"></script>
+	<script src="../js/dialogue.js"></script>
+	<script src="../js/oracle.js"></script>
+	<script src="../js/seasonal.js"></script>
+	<script src="../js/items.js"></script>
+	<script src="../js/shop.js"></script>
+	<script src="../js/calendar-helpers.js"></script>
+	<script src="../js/audio.js"></script>
+	<script src="../js/feedback.js"></script>
+	<script src="../js/activity-log.js"></script>
+	<script src="../js/main.js"></script>
+</body>
+</html>

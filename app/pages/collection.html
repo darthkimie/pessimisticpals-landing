@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Pessimistic Pals | Collection</title>
+	<link rel="stylesheet" href="../css/main.css">
+</head>
+<body data-page="collection">
+	<main class="screen screen-collection" data-collection-root>
+		<header class="topbar panel">
+			<div>
+				<p class="eyebrow">PESSIMISTIC PALS // COLLECTION</p>
+				<h1 class="screen-title">Specimen Archive</h1>
+			</div>
+			<p class="date-stamp" data-collection-date>---</p>
+		</header>
+
+		<section class="panel collection-overview-panel">
+			<div class="section-heading-row">
+				<div>
+					<p class="eyebrow">ARCHIVE STATUS</p>
+					<h2 class="section-title">Every pal, logged with varying confidence</h2>
+				</div>
+			</div>
+
+			<div class="collection-summary-grid">
+				<article class="panel currency-card currency-card-gloom">
+					<p class="label">Indexed</p>
+					<p class="currency-value" data-collection-total>00</p>
+				</article>
+				<article class="panel currency-card currency-card-luck">
+					<p class="label">Unlocked</p>
+					<p class="currency-value" data-collection-unlocked>00</p>
+				</article>
+				<article class="panel currency-card">
+					<p class="label">Mutating</p>
+					<p class="currency-value" data-collection-risk>00</p>
+				</article>
+				<article class="panel currency-card">
+					<p class="label">Constellations</p>
+					<p class="currency-value" data-collection-constellations>00</p>
+				</article>
+			</div>
+
+			<p class="section-copy" data-collection-copy>Archive link pending.</p>
+			<a class="ghost-link database-deep-link" href="database.html">Open Lore Database -&gt;</a>
+		</section>
+
+		<section class="collection-list" data-collection-list aria-label="Pal archive"></section>
+
+		<section class="panel wall-panel">
+			<div class="section-heading-row">
+				<div>
+					<p class="eyebrow">WALL OF WOES</p>
+					<h2 class="section-title">Collected objects with unfortunate histories</h2>
+				</div>
+				<p class="section-note" data-wall-count>0 ITEMS</p>
+			</div>
+
+			<div class="collection-links wall-sort-row">
+				<button type="button" class="ghost-link collection-link" data-wall-sort="date">Sort by Date</button>
+				<button type="button" class="ghost-link collection-link" data-wall-sort="rarity">Sort by Rarity</button>
+			</div>
+
+			<ul class="wall-grid" data-wall-grid></ul>
+		</section>
+
+		<section class="panel constellation-panel">
+			<div class="section-heading-row">
+				<div>
+					<p class="eyebrow">CONSTELLATION MAP</p>
+					<h2 class="section-title">Connections lit by shared roster</h2>
+				</div>
+				<p class="section-note" data-constellation-count>0 LIT</p>
+			</div>
+			<p class="section-copy">Own a pal and their Best Pal to light their connection. Complete a full loop to unlock a Constellation Trait.</p>
+			<div class="constellation-map" data-constellation-list></div>
+		</section>
+
+		<section class="panel clone-archive-panel">
+			<div class="section-heading-row">
+				<div>
+					<p class="eyebrow">CLONE ARCHIVE</p>
+					<h2 class="section-title">Stored chamber outcomes and their inherited problems</h2>
+				</div>
+				<p class="section-note" data-clone-archive-count>0 STORED</p>
+			</div>
+
+			<div class="collection-links wall-sort-row">
+				<button type="button" class="ghost-link collection-link" data-clone-sort="date">Sort by Date</button>
+				<button type="button" class="ghost-link collection-link" data-clone-sort="rarity">Sort by Rarity</button>
+			</div>
+
+			<ul class="clone-archive-list" data-clone-archive-list></ul>
+		</section>
+
+		<nav class="pals-access-row" aria-label="Secondary">
+			<a class="ghost-link pals-access-link" href="companion.html">Talk</a>
+			<a class="ghost-link pals-access-link" href="lab.html">Lab</a>
+			<a class="ghost-link pals-access-link is-active" href="collection.html">Archive</a>
+			<a class="ghost-link pals-access-link" href="choose-pal.html">Change Pal</a>
+			<a class="ghost-link pals-access-link" href="database.html">Database</a>
+		</nav>
+
+		<nav class="bottom-nav panel" aria-label="Primary">
+			<a class="nav-link" href="tasks.html"><span class="nav-icon" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 20 20" fill="none"><rect x="4" y="3" width="12" height="14" rx="1" stroke="currentColor" stroke-width="1.5"/><line x1="7" y1="7" x2="13" y2="7" stroke="currentColor" stroke-width="1.5"/><line x1="7" y1="10" x2="13" y2="10" stroke="currentColor" stroke-width="1.5"/><line x1="7" y1="13" x2="11" y2="13" stroke="currentColor" stroke-width="1.5"/></svg></span><span class="nav-label">Tasks</span></a>
+			<a class="nav-link" href="habits.html"><span class="nav-icon" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 20 20" fill="none"><circle cx="4.5" cy="10" r="2" stroke="currentColor" stroke-width="1.5"/><circle cx="10" cy="10" r="2" stroke="currentColor" stroke-width="1.5"/><circle cx="15.5" cy="10" r="2" stroke="currentColor" stroke-width="1.5"/><line x1="6.5" y1="10" x2="8" y2="10" stroke="currentColor" stroke-width="1.5"/><line x1="12" y1="10" x2="13.5" y2="10" stroke="currentColor" stroke-width="1.5"/></svg></span><span class="nav-label">Routine</span></a>
+			<a class="nav-link" href="home.html"><span class="nav-icon" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 20 20" fill="none"><path d="M10 15.5S3 11 3 6.5a4 4 0 0 1 7-2.65A4 4 0 0 1 17 6.5C17 11 10 15.5 10 15.5z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></svg></span><span class="nav-label">Care</span></a>
+			<a class="nav-link" href="calendar.html"><span class="nav-icon" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 20 20" fill="none"><rect x="3" y="5" width="14" height="12" rx="1" stroke="currentColor" stroke-width="1.5"/><line x1="3" y1="9" x2="17" y2="9" stroke="currentColor" stroke-width="1.5"/><line x1="7" y1="3" x2="7" y2="7" stroke="currentColor" stroke-width="1.5"/><line x1="13" y1="3" x2="13" y2="7" stroke="currentColor" stroke-width="1.5"/></svg></span><span class="nav-label">Schedule</span></a>
+			<a class="nav-link" href="lab.html"><span class="nav-icon" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 20 20" fill="none"><path d="M8 3h4M9 3v6l-3.5 5.5A1 1 0 0 0 6.4 16h7.2a1 1 0 0 0 .9-1.5L11 9V3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="nav-label">Lab</span></a>
+			<a class="nav-link is-active" href="collection.html"><span class="nav-icon" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 20 20" fill="none"><rect x="3" y="3" width="6" height="6" rx="1" stroke="currentColor" stroke-width="1.5"/><rect x="11" y="3" width="6" height="6" rx="1" stroke="currentColor" stroke-width="1.5"/><rect x="3" y="11" width="6" height="6" rx="1" stroke="currentColor" stroke-width="1.5"/><rect x="11" y="11" width="6" height="6" rx="1" stroke="currentColor" stroke-width="1.5"/></svg></span><span class="nav-label">Collection</span></a>
+			<a class="nav-link" href="companion.html"><span class="nav-icon" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 20 20" fill="none"><path d="M4 4h12a1 1 0 0 1 1 1v7a1 1 0 0 1-1 1H8l-4 3V5a1 1 0 0 1 1-1z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></svg></span><span class="nav-label">Companion</span></a>
+		</nav>
+	</main>
+
+	<script src="../js/constants.js"></script>
+	<script src="../js/utils.js"></script>
+	<script src="../js/data.js"></script>
+	<script src="../js/normalize.js"></script>
+	<script src="../js/state.js"></script>
+	<script src="../js/ghost.js"></script>
+	<script src="../js/tooltips.js"></script>
+	<script src="../js/needs.js"></script>
+	<script src="../js/trust.js"></script>
+	<script src="../js/clone.js"></script>
+	<script src="../js/clone-reveal.js"></script>
+	<script src="../js/pal-helpers.js"></script>
+	<script src="../js/dialogue.js"></script>
+	<script src="../js/oracle.js"></script>
+	<script src="../js/seasonal.js"></script>
+	<script src="../js/items.js"></script>
+	<script src="../js/shop.js"></script>
+	<script src="../js/calendar-helpers.js"></script>
+	<script src="../js/audio.js"></script>
+	<script src="../js/feedback.js"></script>
+	<script src="../js/activity-log.js"></script>
+	<script src="../js/main.js"></script>
+</body>
+</html>

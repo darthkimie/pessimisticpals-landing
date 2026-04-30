@@ -1,0 +1,2 @@
+Drop ship art here using the format {slug}_ship.png.
+Existing legacy ship art still falls back to assets/pals/{slug}-ship-front.png.

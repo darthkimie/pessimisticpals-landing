@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Pessimistic Pals | Care</title>
+	<link rel="stylesheet" href="../css/main.css">
+</head>
+<body data-page="care">
+	<main class="screen screen-care" data-care-root>
+		<header class="topbar panel">
+			<div>
+				<p class="eyebrow">PESSIMISTIC PALS // CARE</p>
+				<h1 class="screen-title">Maintenance Loop</h1>
+			</div>
+			<p class="date-stamp" data-care-date>---</p>
+		</header>
+
+		<section class="panel pal-panel care-pal-panel">
+			<section class="currency-grid care-currency-grid">
+				<article class="panel currency-card currency-card-gloom">
+					<p class="label">Gloom</p>
+					<p class="currency-value" data-care-gloom>000</p>
+				</article>
+				<article class="panel currency-card currency-card-luck">
+					<p class="label">Luckdust</p>
+					<p class="currency-value" data-care-luckdust>00</p>
+				</article>
+				<article class="panel currency-card">
+					<p class="label">Streak</p>
+					<p class="currency-value" data-care-streak>00</p>
+				</article>
+			</section>
+			<div class="pal-frame" data-pal-frame>
+				<img class="pal-image" data-pal-image src="" alt="Pal portrait placeholder">
+				<img class="pal-outfit-overlay" data-pal-outfit-overlay src="" alt="" hidden>
+				<div class="pal-placeholder" data-pal-placeholder>XIO</div>
+				<div class="pal-idle-overlay">
+					<div class="pal-lid top"></div>
+					<div class="pal-lid bottom"></div>
+					<span class="pal-zzz">Z</span>
+				</div>
+				<p class="pal-ship-note label" data-pal-ship-note hidden>Ship Visual</p>
+			</div>
+			<div class="pal-copy">
+				<div class="pal-heading-row care-heading-row">
+					<div>
+						<h2 class="pal-name" data-care-name>Awaiting Assignment</h2>
+						<p class="pal-relationship-mode mode-observing" data-care-relationship-mode>OBSERVING</p>
+						<p class="pal-clone-subtitle" data-pal-clone-subtitle hidden></p>
+					</div>
+					<div class="pal-status-cluster">
+						<span class="plague-dot" data-plague-dot hidden></span>
+						<p class="section-note" data-care-mood>Grudgingly Stable</p>
+					</div>
+				</div>
+
+				<article class="dialogue-box">
+					<p class="label">Your pal says</p>
+					<p class="dialogue-text" data-care-dialogue aria-live="polite" aria-atomic="true">Care dialogue pending.</p>
+				</article>
+				<div class="care-actions-row">
+					<button type="button" class="action-button wardrobe-toggle care-action-toggle" data-wardrobe-toggle aria-expanded="false">
+						<span class="wardrobe-toggle-mark" aria-hidden="true">+</span>
+						<span class="wardrobe-toggle-label">WARDROBE</span>
+					</button>
+					<button type="button" class="action-button wardrobe-toggle pantry-toggle care-action-toggle" data-pantry-toggle aria-expanded="false">
+						<span class="wardrobe-toggle-mark" aria-hidden="true">+</span>
+						<span class="wardrobe-toggle-label">FOOD</span>
+					</button>
+					<button type="button" class="action-button wardrobe-toggle toybox-toggle care-action-toggle" data-toybox-toggle aria-expanded="false">
+						<span class="wardrobe-toggle-mark" aria-hidden="true">+</span>
+						<span class="wardrobe-toggle-label">TOYS</span>
+					</button>
+				</div>
+				<section class="wardrobe-panel" data-wardrobe-panel hidden>
+					<p class="eyebrow">WARDROBE</p>
+					<p class="section-note" data-wardrobe-note>Pick something on or strip it back to base.</p>
+					<div class="wardrobe-grid" data-wardrobe-grid></div>
+				</section>
+				<section class="wardrobe-panel pantry-panel" data-pantry-panel hidden>
+					<p class="eyebrow">PANTRY</p>
+					<p class="section-note" data-pantry-note>Send them to the food store. They will eat from the pantry on their own when hungry.</p>
+					<div class="wardrobe-grid pantry-grid" data-pantry-grid></div>
+				</section>
+				<section class="wardrobe-panel toybox-panel" data-toybox-panel hidden>
+					<p class="eyebrow">TOY BOX</p>
+					<p class="section-note" data-toybox-note>Send them to the toy store. They will play on their own when bored.</p>
+					<div class="wardrobe-grid toybox-grid" data-toybox-grid></div>
+				</section>
+
+				<section class="panel activity-log-panel" data-activity-log-panel>
+					<div class="section-heading-row">
+						<div>
+							<p class="eyebrow">ACTIVITY LOG</p>
+							<h2 class="section-title">What they have been up to</h2>
+						</div>
+						<div class="activity-log-toggle-row">
+							<button type="button" class="activity-log-scope-btn is-active" data-activity-scope="active" aria-pressed="true">ACTIVE PAL</button>
+							<button type="button" class="activity-log-scope-btn" data-activity-scope="all" aria-pressed="false">ALL PALS</button>
+						</div>
+					</div>
+					<div class="activity-log-filter-row" data-activity-filter-row></div>
+					<ol class="activity-log-list" data-activity-log-list aria-live="polite"></ol>
+					<div class="activity-log-footer">
+						<button type="button" class="activity-log-clear-btn" data-activity-clear>CLEAR LOG</button>
+						<p class="activity-log-retention-note">Keeps the last 7 days. Confirms before clearing.</p>
+					</div>
+				</section>
+			</div>
+		</section>
+
+		<section class="panel plague-alert-panel" data-plague-panel hidden>
+			<div class="plague-alert-head">
+				<span class="plague-alert-icon" aria-hidden="true">!</span>
+				<div class="plague-alert-titles">
+					<p class="plague-alert-eyebrow">ICKYSOUL PLAGUE</p>
+					<h2 class="plague-alert-title" data-plague-stage-label>Containment recommended</h2>
+				</div>
+				<span class="plague-alert-stage" data-plague-stage-badge>STAGE 1</span>
+			</div>
+			<p class="plague-alert-desc" data-plague-stage-description>
+				The Icky is struggling. Treat before it advances.
+			</p>
+			<ul class="plague-alert-costs" aria-label="Cure costs">
+				<li class="plague-alert-cost"><span class="plague-alert-cost-label">GLOOM</span><span class="plague-alert-cost-value" data-plague-cure-gloom>--</span></li>
+				<li class="plague-alert-cost"><span class="plague-alert-cost-label">LUCKDUST</span><span class="plague-alert-cost-value" data-plague-cure-luckdust>--</span></li>
+				<li class="plague-alert-cost"><span class="plague-alert-cost-label">TRUST</span><span class="plague-alert-cost-value" data-plague-cure-trust>--</span></li>
+			</ul>
+			<button type="button" class="action-button cure-button plague-alert-cta" data-cure-plague>
+				<span class="plague-alert-cta-mark" aria-hidden="true">+</span>
+				<span class="plague-alert-cta-label">ATTEMPT CURE</span>
+			</button>
+		</section>
+
+		<section class="panel care-calendar-panel"hidden>
+			<div class="section-heading-row">
+				<div>
+					<p class="eyebrow">CALENDAR IMPACT ON CARE</p>
+					<h2 class="section-title">Calendar drag on care</h2>
+				</div>
+				<p class="section-note" data-care-calendar-pal-link>PAL-LINKED</p>
+			</div>
+			<div class="status-grid">
+				<article class="status-card">
+					<p class="label">Overdue</p>
+					<p class="status-value" data-care-overdue-count>00</p>
+				</article>
+				<article class="status-card">
+					<p class="label">Next Orbit</p>
+					<p class="status-value" data-care-next-event>Nothing new is queued.</p>
+				</article>
+			</div>
+			<article class="dialogue-box">
+				<p class="label">How your calendar is affecting care</p>
+				<p class="dialogue-text" data-care-overdue-note aria-live="polite" aria-atomic="true">No overdue orbit strain is reaching care right now.</p>
+			</article>
+		</section>
+
+		<section class="panel needs-panel">
+			<div class="section-heading-row">
+				<div>
+					<p class="eyebrow">PAL NEEDS</p>
+					<h2 class="section-title">Your pal's current needs</h2>
+				</div>
+				<p class="section-note">Real-time decay</p>
+			</div>
+
+			<div class="needs-list">
+				<article class="need-row" data-need-row="hunger">
+					<div class="need-copy-row">
+						<p class="label">Sustenance</p>
+						<p class="need-value" data-need-value>0%</p>
+						<span data-care-hunger hidden>0%</span>
+					</div>
+					<div class="need-track">
+						<span class="need-fill" data-need-fill></span>
+					</div>
+					<button type="button" class="need-action-button"
+					        data-care-action="feed">
+						Feed
+					</button>
+				</article>
+				<article class="need-row" data-need-row="boredom">
+					<div class="need-copy-row">
+						<p class="label">Stimulation</p>
+						<p class="need-value" data-need-value>0%</p>
+					</div>
+					<div class="need-track">
+						<span class="need-fill" data-need-fill></span>
+					</div>
+					<button type="button" class="need-action-button"
+					        data-care-action="entertain">
+						Entertain
+					</button>
+				</article>
+				<article class="need-row" data-need-row="mood">
+					<div class="need-copy-row">
+						<p class="label">Disposition</p>
+						<p class="need-value" data-need-value>0%</p>
+						<span data-care-mood-value hidden>0%</span>
+					</div>
+					<div class="need-track">
+						<span class="need-fill" data-need-fill></span>
+					</div>
+					<button type="button" class="need-action-button"
+					        data-care-action="comfort">
+						Comfort
+					</button>
+				</article>
+				<article class="need-row" data-need-row="plague">
+					<div class="need-copy-row">
+						<p class="label">Plague Risk</p>
+						<p class="need-value" data-need-value>0%</p>
+						<span data-care-plague hidden>0%</span>
+						<span data-care-trust hidden>0 COLD</span>
+					</div>
+					<div class="need-track">
+						<span class="need-fill" data-need-fill></span>
+					</div>
+					<button type="button" class="need-action-button"
+					        data-care-action="sanitize">
+						Sanitize
+					</button>
+				</article>
+				<article class="need-row need-row-trust">
+					<div class="need-copy-row">
+						<p class="label">TRUST</p>
+						<p class="need-value trust-value" data-care-trust>0 COLD</p>
+					</div>
+					<div class="need-track">
+						<span class="need-fill" data-need-fill></span>
+					</div>
+					<p class="trust-tier-label" data-care-relationship-mode>OBSERVING</p>
+				</article>
+			</div>
+			<button type="button" class="need-action-button care-btn" data-gift-btn>
+				GIFT
+				<span class="care-cost" data-gift-btn-label>FROM INVENTORY</span>
+			</button>
+			<div class="gift-panel" data-gift-panel hidden>
+				<div class="section-heading-row">
+					<p class="eyebrow">CHOOSE A GIFT</p>
+					<button type="button" class="btn-close" data-close-gift>CLOSE</button>
+				</div>
+				<div class="gift-list" data-gift-list></div>
+			</div>
+		</section>
+
+		<section class="panel care-roster-panel">
+			<div class="section-heading-row">
+				<div>
+					<p class="eyebrow">YOUR OTHER PALS</p>
+					<h2 class="section-title">All owned pals in the loop</h2>
+				</div>
+				<p class="section-note" data-care-roster-count>0 OWNED</p>
+			</div>
+			<ul class="care-roster-list" data-care-roster></ul>
+		</section>
+
+		<section class="panel death-panel" data-death-panel hidden>
+			<div class="section-heading-row">
+				<div>
+					<p class="eyebrow">LOSS REPORT</p>
+					<h2 class="section-title" data-death-pal-name>---</h2>
+				</div>
+				<p class="section-note">Permanent record</p>
+			</div>
+			<p class="section-copy" data-death-cause>---</p>
+			<p class="task-meta" data-death-date>---</p>
+			<button type="button" class="ghost-link" data-dismiss-death>Acknowledge</button>
+		</section>
+
+		<section class="panel game-over-panel" data-game-over-panel hidden>
+			<div class="section-heading-row">
+				<div>
+					<p class="eyebrow">TRANSMISSION INTERRUPTED</p>
+					<h2 class="section-title" data-game-over-pal-name>They are gone.</h2>
+				</div>
+				<p class="section-note">No signal detected</p>
+			</div>
+			<p class="section-copy" data-game-over-message>The arrangement has ended. The universe has noted this with indifference.</p>
+			<p class="section-copy">A new Pal has been detected in your vicinity. They did not ask for this either.</p>
+			<button type="button" class="action-button" data-game-over-continue>Begin Again</button>
+		</section>
+
+		<nav class="bottom-nav panel" aria-label="Primary">
+			<a class="nav-link" href="tasks.html"><span class="nav-icon" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 20 20" fill="none"><rect x="4" y="3" width="12" height="14" rx="1" stroke="currentColor" stroke-width="1.5"/><line x1="7" y1="7" x2="13" y2="7" stroke="currentColor" stroke-width="1.5"/><line x1="7" y1="10" x2="13" y2="10" stroke="currentColor" stroke-width="1.5"/><line x1="7" y1="13" x2="11" y2="13" stroke="currentColor" stroke-width="1.5"/></svg></span><span class="nav-label">Tasks</span></a>
+			<a class="nav-link" href="habits.html"><span class="nav-icon" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 20 20" fill="none"><circle cx="4.5" cy="10" r="2" stroke="currentColor" stroke-width="1.5"/><circle cx="10" cy="10" r="2" stroke="currentColor" stroke-width="1.5"/><circle cx="15.5" cy="10" r="2" stroke="currentColor" stroke-width="1.5"/><line x1="6.5" y1="10" x2="8" y2="10" stroke="currentColor" stroke-width="1.5"/><line x1="12" y1="10" x2="13.5" y2="10" stroke="currentColor" stroke-width="1.5"/></svg></span><span class="nav-label">Routine</span></a>
+			<a class="nav-link is-active" href="home.html"><span class="nav-icon" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 20 20" fill="none"><path d="M10 15.5S3 11 3 6.5a4 4 0 0 1 7-2.65A4 4 0 0 1 17 6.5C17 11 10 15.5 10 15.5z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></svg></span><span class="nav-label">Care</span></a>
+			<a class="nav-link" href="calendar.html"><span class="nav-icon" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 20 20" fill="none"><rect x="3" y="5" width="14" height="12" rx="1" stroke="currentColor" stroke-width="1.5"/><line x1="3" y1="9" x2="17" y2="9" stroke="currentColor" stroke-width="1.5"/><line x1="7" y1="3" x2="7" y2="7" stroke="currentColor" stroke-width="1.5"/><line x1="13" y1="3" x2="13" y2="7" stroke="currentColor" stroke-width="1.5"/></svg></span><span class="nav-label">Schedule</span></a>
+			<a class="nav-link" href="lab.html"><span class="nav-icon" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 20 20" fill="none"><path d="M8 3h4M9 3v6l-3.5 5.5A1 1 0 0 0 6.4 16h7.2a1 1 0 0 0 .9-1.5L11 9V3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="nav-label">Lab</span></a>
+			<a class="nav-link" href="collection.html"><span class="nav-icon" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 20 20" fill="none"><rect x="3" y="3" width="6" height="6" rx="1" stroke="currentColor" stroke-width="1.5"/><rect x="11" y="3" width="6" height="6" rx="1" stroke="currentColor" stroke-width="1.5"/><rect x="3" y="11" width="6" height="6" rx="1" stroke="currentColor" stroke-width="1.5"/><rect x="11" y="11" width="6" height="6" rx="1" stroke="currentColor" stroke-width="1.5"/></svg></span><span class="nav-label">Collection</span></a>
+			<a class="nav-link" href="companion.html"><span class="nav-icon" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 20 20" fill="none"><path d="M4 4h12a1 1 0 0 1 1 1v7a1 1 0 0 1-1 1H8l-4 3V5a1 1 0 0 1 1-1z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></svg></span><span class="nav-label">Companion</span></a>
+		</nav>
+	</main>
+
+	<script src="../js/constants.js"></script>
+	<script src="../js/utils.js"></script>
+	<script src="../js/data.js"></script>
+	<script src="../js/normalize.js"></script>
+	<script src="../js/state.js"></script>
+	<script src="../js/ghost.js"></script>
+	<script src="../js/tooltips.js"></script>
+	<script src="../js/needs.js"></script>
+	<script src="../js/trust.js"></script>
+	<script src="../js/clone.js"></script>
+	<script src="../js/clone-reveal.js"></script>
+	<script src="../js/pal-helpers.js"></script>
+	<script src="../js/dialogue.js"></script>
+	<script src="../js/oracle.js"></script>
+	<script src="../js/seasonal.js"></script>
+	<script src="../js/items.js"></script>
+	<script src="../js/shop.js"></script>
+	<script src="../js/calendar-helpers.js"></script>
+	<script src="../js/audio.js"></script>
+	<script src="../js/feedback.js"></script>
+	<script src="../js/activity-log.js"></script>
+		<script src="../js/poke.js"></script>
+	<script src="../js/sprites.js"></script>
+	<script src="../js/main.js"></script>
+</body>
+</html>

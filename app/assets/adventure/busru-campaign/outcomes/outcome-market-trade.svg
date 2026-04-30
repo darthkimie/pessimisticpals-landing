@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900">
+  <rect width="1600" height="900" fill="#10141b"/>
+  <rect x="90" y="120" width="520" height="260" rx="28" fill="#1b2a34" stroke="#f7d489" stroke-width="4"/>
+  <rect x="990" y="210" width="430" height="220" rx="28" fill="#243542"/>
+  <circle cx="1220" cy="650" r="120" fill="#f1c86b" opacity="0.28"/>
+  <text x="120" y="190" fill="#fff2d0" font-family="Georgia, serif" font-size="56">Outcome Overlay</text>
+  <text x="120" y="268" fill="#d7e9f2" font-family="Verdana, sans-serif" font-size="30">Market Trade</text>
+  <text x="120" y="348" fill="#f5cf73" font-family="Verdana, sans-serif" font-size="24">Placeholder for cargo, barter, and terminal art</text>
+</svg>

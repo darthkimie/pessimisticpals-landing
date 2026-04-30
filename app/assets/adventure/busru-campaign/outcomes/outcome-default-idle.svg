@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#13291c"/>
+      <stop offset="100%" stop-color="#040705"/>
+    </linearGradient>
+  </defs>
+  <rect width="1600" height="900" fill="url(#bg)"/>
+  <circle cx="1320" cy="140" r="92" fill="#f7d98b" opacity="0.4"/>
+  <rect x="120" y="640" width="1360" height="120" rx="32" fill="#243b28" opacity="0.84"/>
+  <text x="120" y="160" fill="#f8f0cf" font-family="Georgia, serif" font-size="54">Adventure Busru Campaign Stage</text>
+  <text x="120" y="238" fill="#d6eccf" font-family="Verdana, sans-serif" font-size="28">Placeholder overlay: default idle state</text>
+  <text x="120" y="332" fill="#f3d782" font-family="Verdana, sans-serif" font-size="24">Replace with final painted outcome art</text>
+</svg>

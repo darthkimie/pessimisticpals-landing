@@ -1,0 +1,11 @@
+Drop portrait art here using the format {slug}_portrait.png.
+ahote_portrait.png
+brutus_portrait.png
+centrama_portrait.png
+doolin_portrait.png
+elbjorg_portrait.png
+veruca_portrait.png
+winta_portrait.png
+xio_portrait.png
+yun_portrait.png
+zenji_portrait.png

@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900">
+  <rect width="1600" height="900" fill="#0d1512"/>
+  <path d="M0 700 L320 520 L560 640 L820 460 L1120 640 L1380 510 L1600 680 L1600 900 L0 900 Z" fill="#234333"/>
+  <path d="M580 600 L780 420 L980 600 Z" fill="#c9a86f"/>
+  <rect x="650" y="598" width="260" height="150" fill="#6d5a3d"/>
+  <text x="120" y="150" fill="#f4edd3" font-family="Georgia, serif" font-size="56">Outcome Overlay</text>
+  <text x="120" y="228" fill="#d1ebd5" font-family="Verdana, sans-serif" font-size="30">Build Shelter</text>
+  <text x="120" y="308" fill="#f5cf73" font-family="Verdana, sans-serif" font-size="24">Placeholder for cave, burrow, or nest expansion art</text>
+</svg>

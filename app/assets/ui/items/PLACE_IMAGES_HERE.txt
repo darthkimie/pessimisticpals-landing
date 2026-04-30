@@ -1,0 +1,2 @@
+Drop collectible item art here using the item slug from image_ref plus .png.
+Example: burnt-toast-relic.png

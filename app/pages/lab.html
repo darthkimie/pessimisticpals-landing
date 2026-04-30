@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Pessimistic Pals | Lab</title>
+	<link rel="stylesheet" href="../css/main.css">
+</head>
+<body data-page="lab">
+	<main class="screen screen-lab" data-lab-root>
+		<header class="topbar panel">
+			<div>
+				<p class="eyebrow">PESSIMISTIC PALS // LAB</p>
+				<h1 class="screen-title">Clone Chamber</h1>
+			</div>
+			<p class="date-stamp" data-lab-date>---</p>
+		</header>
+
+		<section class="panel announcement-panel divergence-banner" data-divergence-banner hidden>
+			<p class="eyebrow">SEQUENCE EVENT</p>
+			<h2 class="section-title">First Divergence</h2>
+			<p class="section-copy">
+				The lineage has moved beyond its origins. A Gen 2 clone exists.
+				The database now tracks your full clone lineage.
+			</p>
+			<a class="ghost-link" href="database.html">View Lineage Tree</a>
+		</section>
+
+		<section class="currency-grid care-currency-grid">
+			<article class="panel currency-card currency-card-gloom">
+				<p class="label">Gloom</p>
+				<p class="currency-value" data-lab-gloom>000</p>
+			</article>
+			<article class="panel currency-card currency-card-luck">
+				<p class="label">Luckdust</p>
+				<p class="currency-value" data-lab-luckdust>00</p>
+			</article>
+			<article class="panel currency-card">
+				<p class="label">Chamber</p>
+				<p class="currency-value" data-lab-status>CHAMBER IDLE</p>
+			</article>
+		</section>
+
+		<section class="panel lab-stats-panel">
+			<div class="section-heading-row">
+				<div>
+					<p class="eyebrow">SOURCE PAL STATS</p>
+					<h2 class="section-title" data-lab-name>Awaiting Assignment</h2>
+				</div>
+				<p class="section-note" data-lab-risk>Mutation Risk 00/10</p>
+			</div>
+
+			<dl class="stat-grid lab-stat-grid">
+					<div class="stat-card">
+						<dt class="label">Luck</dt>
+						<dd data-lab-luck-score>00</dd>
+					</div>
+					<div class="stat-card">
+						<dt class="label">Pessimism</dt>
+						<dd data-lab-pessimism-score>00</dd>
+					</div>
+					<div class="stat-card">
+						<dt class="label">Base Risk</dt>
+						<dd data-lab-base-risk-score>00</dd>
+					</div>
+					<div class="stat-card is-clone-bonus">
+						<dt class="label">Clone Bonus</dt>
+						<dd data-lab-clone-bonus>+0</dd>
+					</div>
+				</dl>
+			</div>
+		</section>
+
+		<section class="panel lab-media-panel">
+			<div class="section-heading-row">
+				<div>
+					<p class="eyebrow">CHAMBER VISUALS</p>
+					<h2 class="section-title">Hardware, schematics, and field echoes</h2>
+				</div>
+				<p class="section-note" data-lab-media-note>ASSET LINK PENDING</p>
+			</div>
+
+			<div class="lab-media-grid">
+				<article class="lab-asset-card">
+					<p class="label">Ship Bay</p>
+					<div class="lab-asset-frame lab-asset-frame-ship" data-lab-ship-frame>
+						<img class="lab-asset-image" data-lab-ship-image alt="Current pal ship" hidden>
+						<div class="lab-asset-placeholder" data-lab-ship-placeholder>SHIP</div>
+					</div>
+					<p class="task-meta" data-lab-ship-copy>Ship visual pending.</p>
+				</article>
+
+				<article class="lab-asset-card">
+					<p class="label">Clone Dossier</p>
+					<div class="lab-asset-frame" data-lab-clone-art-frame>
+						<img class="lab-asset-image" data-lab-clone-art alt="Clone chamber schematic" hidden>
+						<div class="lab-asset-placeholder" data-lab-clone-art-placeholder>SEQ</div>
+					</div>
+					<p class="section-copy" data-lab-clone-art-copy>The chamber has not selected a schematic yet.</p>
+				</article>
+			</div>
+		</section>
+
+		<section class="panel chamber-panel">
+			<div class="section-heading-row">
+				<div>
+					<p class="eyebrow">CLONING CYCLE</p>
+					<h2 class="section-title">Repeat the problem in a sealed container</h2>
+				</div>
+				<p class="section-note">Persistent real timer</p>
+			</div>
+
+			<div class="chamber-status-grid">
+				<article class="status-card">
+					<p class="label">Countdown</p>
+					<p class="status-value chamber-countdown" data-clone-countdown>00:00</p>
+				</article>
+				<article class="status-card">
+					<p class="label">Compatibility</p>
+					<p class="status-value" data-lab-compatibility>--</p>
+				</article>
+				<article class="status-card">
+					<p class="label">Cycle Length</p>
+					<p class="status-value" data-lab-cycle-length>00:00</p>
+				</article>
+				<article class="status-card">
+					<p class="label">Archive</p>
+					<p class="status-value" data-lab-archive-total>00</p>
+				</article>
+			</div>
+			<p class="task-meta lab-pair-summary" data-lab-pair-summary>Select a clone pair to inspect chamber stability.</p>
+
+			<button type="button" class="action-button oracle-button" data-start-clone>Start Clone Cycle</button>
+		</section>
+
+		<section class="panel lab-adventure-panel">
+			<div class="section-heading-row">
+				<div>
+					<p class="eyebrow">CAMPAIGN PLAYBACK</p>
+					<h2 class="section-title">Recovered field footage</h2>
+				</div>
+				<p class="section-note" data-lab-adventure-tag>ORBITAL FEED</p>
+			</div>
+			<div class="lab-asset-frame lab-adventure-frame" data-lab-adventure-frame>
+				<img class="lab-asset-image" data-lab-adventure-image alt="Campaign playback still" hidden>
+				<div class="lab-asset-placeholder" data-lab-adventure-placeholder>VOID</div>
+			</div>
+			<p class="section-copy" data-lab-adventure-copy>Adventure playback is still being indexed.</p>
+		</section>
+
+		<section class="panel reveal-panel" data-clone-reveal hidden>
+			<div class="section-heading-row">
+				<div>
+					<p class="eyebrow">MUTATION REVEAL</p>
+					<h2 class="section-title" data-reveal-label>Stable Echo</h2>
+				</div>
+				<p class="section-note" data-reveal-source>XIO // STABLE</p>
+			</div>
+			<p class="section-copy" data-reveal-note aria-live="polite" aria-atomic="true">The chamber has finished inventing a variation on the problem.</p>
+			<button type="button" class="ghost-link" data-archive-clone>Archive Reveal</button>
+		</section>
+
+		<section class="panel history-panel">
+			<div class="section-heading-row">
+				<div>
+					<p class="eyebrow">CLONE HISTORY</p>
+					<h2 class="section-title">Recent chamber mistakes</h2>
+				</div>
+				<p class="section-note">Stored in local save</p>
+			</div>
+
+			<ul class="clone-history" data-clone-history></ul>
+		</section>
+
+		<nav class="pals-access-row" aria-label="Secondary">
+			<a class="ghost-link pals-access-link" href="companion.html">Talk</a>
+			<a class="ghost-link pals-access-link is-active" href="lab.html">Lab</a>
+			<a class="ghost-link pals-access-link" href="collection.html">Archive</a>
+			<a class="ghost-link pals-access-link" href="choose-pal.html">Change Pal</a>
+			<a class="ghost-link pals-access-link" href="database.html">Database</a>
+		</nav>
+
+		<nav class="bottom-nav panel" aria-label="Primary">
+			<a class="nav-link" href="tasks.html"><span class="nav-icon" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 20 20" fill="none"><rect x="4" y="3" width="12" height="14" rx="1" stroke="currentColor" stroke-width="1.5"/><line x1="7" y1="7" x2="13" y2="7" stroke="currentColor" stroke-width="1.5"/><line x1="7" y1="10" x2="13" y2="10" stroke="currentColor" stroke-width="1.5"/><line x1="7" y1="13" x2="11" y2="13" stroke="currentColor" stroke-width="1.5"/></svg></span><span class="nav-label">Tasks</span></a>
+			<a class="nav-link" href="habits.html"><span class="nav-icon" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 20 20" fill="none"><circle cx="4.5" cy="10" r="2" stroke="currentColor" stroke-width="1.5"/><circle cx="10" cy="10" r="2" stroke="currentColor" stroke-width="1.5"/><circle cx="15.5" cy="10" r="2" stroke="currentColor" stroke-width="1.5"/><line x1="6.5" y1="10" x2="8" y2="10" stroke="currentColor" stroke-width="1.5"/><line x1="12" y1="10" x2="13.5" y2="10" stroke="currentColor" stroke-width="1.5"/></svg></span><span class="nav-label">Routine</span></a>
+			<a class="nav-link" href="home.html"><span class="nav-icon" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 20 20" fill="none"><path d="M10 15.5S3 11 3 6.5a4 4 0 0 1 7-2.65A4 4 0 0 1 17 6.5C17 11 10 15.5 10 15.5z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></svg></span><span class="nav-label">Care</span></a>
+			<a class="nav-link" href="calendar.html"><span class="nav-icon" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 20 20" fill="none"><rect x="3" y="5" width="14" height="12" rx="1" stroke="currentColor" stroke-width="1.5"/><line x1="3" y1="9" x2="17" y2="9" stroke="currentColor" stroke-width="1.5"/><line x1="7" y1="3" x2="7" y2="7" stroke="currentColor" stroke-width="1.5"/><line x1="13" y1="3" x2="13" y2="7" stroke="currentColor" stroke-width="1.5"/></svg></span><span class="nav-label">Schedule</span></a>
+			<a class="nav-link is-active" href="lab.html"><span class="nav-icon" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 20 20" fill="none"><path d="M8 3h4M9 3v6l-3.5 5.5A1 1 0 0 0 6.4 16h7.2a1 1 0 0 0 .9-1.5L11 9V3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="nav-label">Lab</span></a>
+			<a class="nav-link" href="collection.html"><span class="nav-icon" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 20 20" fill="none"><rect x="3" y="3" width="6" height="6" rx="1" stroke="currentColor" stroke-width="1.5"/><rect x="11" y="3" width="6" height="6" rx="1" stroke="currentColor" stroke-width="1.5"/><rect x="3" y="11" width="6" height="6" rx="1" stroke="currentColor" stroke-width="1.5"/><rect x="11" y="11" width="6" height="6" rx="1" stroke="currentColor" stroke-width="1.5"/></svg></span><span class="nav-label">Collection</span></a>
+			<a class="nav-link" href="companion.html"><span class="nav-icon" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 20 20" fill="none"><path d="M4 4h12a1 1 0 0 1 1 1v7a1 1 0 0 1-1 1H8l-4 3V5a1 1 0 0 1 1-1z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></svg></span><span class="nav-label">Companion</span></a>
+		</nav>
+	</main>
+
+	<script src="../js/constants.js"></script>
+	<script src="../js/utils.js"></script>
+	<script src="../js/data.js"></script>
+	<script src="../js/normalize.js"></script>
+	<script src="../js/state.js"></script>
+	<script src="../js/ghost.js"></script>
+	<script src="../js/tooltips.js"></script>
+	<script src="../js/needs.js"></script>
+	<script src="../js/trust.js"></script>
+	<script src="../js/clone.js"></script>
+	<script src="../js/clone-reveal.js"></script>
+	<script src="../js/pal-helpers.js"></script>
+	<script src="../js/dialogue.js"></script>
+	<script src="../js/oracle.js"></script>
+	<script src="../js/seasonal.js"></script>
+	<script src="../js/items.js"></script>
+	<script src="../js/shop.js"></script>
+	<script src="../js/calendar-helpers.js"></script>
+	<script src="../js/audio.js"></script>
+	<script src="../js/feedback.js"></script>
+	<script src="../js/activity-log.js"></script>
+	<script src="../js/main.js"></script>
+</body>
+</html>
